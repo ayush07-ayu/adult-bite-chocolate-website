@@ -649,21 +649,22 @@
             <p class="product-description-short">An opulent fusion of Peruvian cacao and adaptogenic herbs, crafted to ignite confidence, deepen intimacy, and elevate your wellbeing.</p>
             
             <div class="price-container">
-                <span class="price" id="priceDisplay">$45.00</span>
+                <span class="price" id="priceDisplay">₹3,749</span>
                 <span class="original-price" id="originalPrice"></span>
                 <span class="savings-badge" id="savingsBadge" style="display: none;"></span>
-                <small> + Free Shipping</small>
+               
             </div>
             
             <div class="purchase-options">
                 <div class="pack-title"><i class="fas fa-gift"></i> Choose Your Pack</div>
                 <div class="pack-buttons">
                     <button class="pack-btn" id="singleBtn"><i class="fas fa-box"></i> Single <span class="pack-save">Best Seller</span></button>
-                    <button class="pack-btn" id="pack3Btn"><i class="fas fa-cubes"></i> Pack of 3 <span class="pack-save">Save $20</span></button>
+                    <button class="pack-btn" id="pack3Btn"><i class="fas fa-cubes"></i> Pack of 3 <span class="pack-save">Save ₹277</span></button>
                 </div>
             </div>
             
-            <button class="order-now-btn" id="mainOrderBtn"><i class="fab fa-whatsapp"></i> Order Now – WhatsApp</button>
+            <!-- ORDER BUTTON NOW LINKS DIRECTLY TO SHOPIFY -->
+            <button class="order-now-btn" id="mainOrderBtn"><i class="fab fa-shopify"></i> Buy Now – Shopify</button>
             <div class="discreet-badge"><i class="fas fa-box"></i> Discreet Packaging Available</div>
             <div class="whatsapp-note">✓ Secure Payment • Worldwide Shipping • 100% Anonymous</div>
         </div>
@@ -713,9 +714,9 @@
     </div>
 </div>
 
-<!-- STICKY ORDER BUTTON -->
+<!-- STICKY ORDER BUTTON - SHOPIFY LINK -->
 <div class="sticky-order">
-    <button class="sticky-btn" id="stickyOrderBtn"><i class="fab fa-whatsapp"></i> Order Now</button>
+    <button class="sticky-btn" id="stickyOrderBtn"><i class="fab fa-shopify"></i> Buy Now</button>
 </div>
 
 <footer>
@@ -732,24 +733,28 @@
     let swiperInstance = null;
     let currentBundle = 'single';
     
+    // Shopify direct link (replaces WhatsApp)
+    const SHOPIFY_LINK = "https://www.adultbite.in/products/adult-bite-dark-chocolate-mood-enhancing-chocolate-for-men-women";
+    
+    // Prices in Indian Rupees (converted from USD with approx rate 1 USD = 83.3 INR)
     const bundleData = {
         single: {
-            price: 45,
-            displayPrice: '$45.00',
+            price: 3749,
+            displayPrice: '₹288',
             originalPrice: null,
             savings: null,
             images: ['chocolate2.png', 'chocolate4.png'],
             productName: 'LOVE BITE',
-            whatsappName: 'Love Bite - Single (Best Seller)'
+            shopifyName: 'Love Bite - Single (Best Seller)'
         },
         pack3: {
-            price: 115,
-            displayPrice: '$115.00',
-            originalPrice: '$135.00',
-            savings: 'Save $20',
+            price: 9574,
+            displayPrice: '₹722',
+            originalPrice: '₹999',
+            savings: 'Save ₹277',
             images: ['chocolate3.png'],
             productName: 'LOVE BITE • Pack of 3',
-            whatsappName: 'Love Bite Pack of 3 (Save $20)'
+            shopifyName: 'Love Bite Pack of 3 (Save ₹277)'
         }
     };
     
@@ -813,16 +818,17 @@
         else if (bundleKey === 'pack3') pack3Btn.classList.add('active');
     }
     
-    function triggerWhatsAppOrder() {
-        const data = bundleData[currentBundle];
-        const message = `Hello AdultBite, I'd like to order ${data.whatsappName} (${data.displayPrice}). Please share payment & shipping details.`;
-        window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+    // DIRECT SHOPIFY REDIRECT (NO WHATSAPP)
+    function redirectToShopify() {
+        window.open(SHOPIFY_LINK, '_blank');
     }
     
     singleBtn.addEventListener('click', () => updateBundle('single'));
     pack3Btn.addEventListener('click', () => updateBundle('pack3'));
-    document.getElementById('mainOrderBtn').addEventListener('click', triggerWhatsAppOrder);
-    document.getElementById('stickyOrderBtn').addEventListener('click', triggerWhatsAppOrder);
+    
+    // Both buttons now go to Shopify product page
+    document.getElementById('mainOrderBtn').addEventListener('click', redirectToShopify);
+    document.getElementById('stickyOrderBtn').addEventListener('click', redirectToShopify);
     
     updateBundle('single');
     
