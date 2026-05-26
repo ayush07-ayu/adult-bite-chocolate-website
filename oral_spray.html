@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="AdultBite Oral Spray – Fresh breath, intimate confidence, advanced hygiene. Natural mint & herbal formula for all-day freshness.">
+    <title>LICK IT Oral Spray | AdultBite Intimate Hygiene</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4B0118;
+            --primary-light: #701c34;
+            --bg-light: #FFFFFF;
+            --bg-secondary: #F9F7F5;
+            --text-main: #1A1A1A;
+            --text-muted: #5a5a5a;
+            --accent: #D4AF37;
+            --accent-glow: rgba(212, 175, 55, 0.25);
+            --glass-bg: rgba(255, 255, 255, 0.92);
+            --shadow-sm: 0 8px 20px rgba(0,0,0,0.03);
+            --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 30px 50px -15px rgba(0,0,0,0.15);
+            --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        h1, h2, h3, .logo, .product-title, .section-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 16px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2100;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            padding: 12px 5%;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+        
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            max-width: 100%;
+        }
+
+        .logo-img {
+            height: 120px;
+            width: auto;
+            max-width: 100%;
+            display: block;
+            transition: var(--transition);
+            margin-left: -60px;
+        }
+
+        @media screen and (max-width: 992px) {
+            .logo-img { height: 100px; margin-left: -8px; }
+        }
+        @media screen and (max-width: 768px) {
+            .logo-img { height: 85px; margin-left: -6px; }
+        }
+        
+        .logo-img:hover {
+            transform: scale(1.02);
+            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.3));
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--accent); }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            background: rgba(255,255,255,0.8);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Main Container */
+        .product-page {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 100px 4% 60px;
+        }
+
+        /* Hero Section */
+        .product-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 70px;
+            align-items: start;
+        }
+
+        /* Gallery Swiper */
+        .product-gallery {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background: #faf8f4;
+        }
+        .swiper {
+            border-radius: 28px;
+            width: 100%;
+            height: auto;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+        .swiper-button-prev, .swiper-button-next {
+            color: var(--accent);
+            background: rgba(255,255,255,0.8);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+        }
+        .swiper-pagination-bullet-active {
+            background: var(--accent);
+        }
+
+        .product-details {
+            padding: 10px 0;
+        }
+        .product-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .product-tagline {
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .product-description-short {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+        .price-container {
+            margin-bottom: 20px;
+        }
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .price small {
+            font-size: 0.9rem;
+        }
+
+        .order-now-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 260px;
+        }
+        .order-now-btn:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        .discreet-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        /* Flavor Selection Buttons */
+        .flavor-options {
+            margin: 30px 0 25px;
+        }
+        .flavor-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .flavor-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .flavor-btn {
+            background: transparent;
+            border: 1.5px solid var(--primary);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .flavor-btn i {
+            color: var(--accent);
+            font-size: 1rem;
+        }
+        .flavor-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--accent);
+        }
+        .flavor-btn.active i {
+            color: var(--accent);
+        }
+        .flavor-badge {
+            font-size: 0.65rem;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 2px 6px;
+            border-radius: 30px;
+            margin-left: 6px;
+        }
+
+        /* Sections - ALL GRIDS IN SINGLE LANE */
+        .section {
+            margin-bottom: 70px;
+        }
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin: 12px auto 0;
+        }
+
+        /* ALL GRIDS - 4 columns desktop, 2 tablet, 1 mobile */
+        .ingredients-grid,
+        .benefits-grid,
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .ingredient-card,
+        .benefit-card,
+        .trust-item {
+            background: white;
+            border-radius: 24px;
+            padding: 25px 18px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #f0e9e2;
+            box-shadow: var(--shadow-sm);
+        }
+        .ingredient-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+        }
+        .ingredient-card:hover,
+        .benefit-card:hover,
+        .trust-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+        .ingredient-card i,
+        .benefit-icon i,
+        .trust-item i {
+            font-size: 2.2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        .ingredient-card h3,
+        .benefit-card h3,
+        .trust-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+        .ingredient-card p,
+        .benefit-card p,
+        .trust-item p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+        .benefit-icon {
+            margin-bottom: 15px;
+        }
+
+        /* About Content */
+        .about-content {
+            background: linear-gradient(135deg, #fff6f0 0%, #ffffff 100%);
+            padding: 40px;
+            border-radius: 32px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .about-content p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        /* Hygiene Highlight */
+        .hygiene-highlight {
+            background: linear-gradient(120deg, rgba(212,175,55,0.05) 0%, rgba(75,1,24,0.03) 100%);
+            border-radius: 32px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+        .hygiene-highlight i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        .hygiene-highlight h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .hygiene-highlight p {
+            font-size: 0.9rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Sticky Order Button */
+        .sticky-order {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+        }
+        .sticky-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 15px rgba(75, 1, 24, 0.4);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .sticky-btn:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: scale(1.03);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 50px 5% 25px;
+            margin-top: 60px;
+        }
+        .footer-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .footer-copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
+            margin-top: 30px;
+            font-size: 0.7rem;
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Animation */
+        @keyframes gentlePulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .price-updated, .image-updated {
+            animation: gentlePulse 0.3s ease-out;
+        }
+
+        /* RESPONSIVE BREAKPOINTS */
+        @media (max-width: 1024px) {
+            .ingredients-grid,
+            .benefits-grid,
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .product-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .product-hero {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 250px;
+                background: white;
+                flex-direction: column;
+                padding: 80px 25px;
+                transition: 0.35s;
+                box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+                z-index: 2000;
+            }
+            .nav-links.active {
+                right: 0;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .sticky-order {
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-page {
+                padding: 90px 4% 50px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+            .ingredients-grid,
+            .benefits-grid,
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .ingredient-card,
+            .benefit-card,
+            .trust-item {
+                padding: 18px 12px;
+            }
+            .ingredient-card i,
+            .benefit-icon i,
+            .trust-item i {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+            .ingredient-card h3,
+            .benefit-card h3,
+            .trust-item h4 {
+                font-size: 0.95rem;
+            }
+            .ingredient-card p,
+            .benefit-card p,
+            .trust-item p {
+                font-size: 0.7rem;
+            }
+            .product-title {
+                font-size: 1.8rem;
+            }
+            .price {
+                font-size: 1.6rem;
+            }
+            .order-now-btn {
+                max-width: 100%;
+            }
+            .hygiene-highlight {
+                padding: 30px 20px;
+            }
+            .hygiene-highlight h3 {
+                font-size: 1.3rem;
+            }
+            .about-content {
+                padding: 25px;
+            }
+            .about-content p {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .ingredients-grid,
+            .benefits-grid,
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .section {
+                margin-bottom: 50px;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .flavor-buttons {
+                gap: 10px;
+            }
+            .flavor-btn {
+                padding: 8px 16px;
+                font-size: 0.75rem;
+            }
+            .logo {
+                font-size: 20px;
+            }
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+        .back-link:hover {
+            color: var(--primary);
+            transform: translateX(-3px);
+        }
+
+        .whatsapp-note {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<nav id="navbar">
+   <div class="logo-wrapper">
+        <a href="#" class="logo-link">
+            <img src="mainlogo.png" alt="AdultBite Logo" class="logo-img">
+        </a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#ingredients">Ingredients</a></li>
+        <li><a href="#hygiene">Hygiene</a></li>
+        <li><a href="#trust">Quality</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+</nav>
+
+<div class="product-page">
+    
+    <!-- HERO PRODUCT SECTION -->
+    <div class="product-hero reveal" id="product-detail">
+        <div class="product-gallery">
+            <div class="swiper productSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img id="mainProductImage" src="spray.png" alt="LICK IT Spray"></div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="product-details">
+            <div class="product-tagline" id="productTagline">✦ Intimate Freshness ✦</div>
+            <h1 class="product-title" id="productTitle">LICK IT<br>Oral Spray</h1>
+            <p class="product-description-short" id="productDesc">Advanced breath freshener with antibacterial properties. Restores natural taste, eliminates odour, and maintains intimate hygiene — all in a discreet, luxurious mist.</p>
+            
+            <div class="price-container">
+                <span class="price" id="priceDisplay">$29.00</span>
+                <small> + Free Shipping</small>
+            </div>
+            
+            <div class="flavor-options">
+                <div class="flavor-title"><i class="fas fa-tint"></i> Choose Your Flavor</div>
+                <div class="flavor-buttons">
+                    <button class="flavor-btn active" id="mangoBtn"><i class="fas fa-mango"></i> Mango Butter <span class="flavor-badge">Tropical</span></button>
+                    <button class="flavor-btn" id="bubblegumBtn"><i class="fas fa-candy-cane"></i> Bubblegum Blush <span class="flavor-badge">Sweet</span></button>
+                </div>
+            </div>
+            
+            <button class="order-now-btn" id="mainOrderBtn"><i class="fab fa-whatsapp"></i> Order Now – WhatsApp</button>
+            <div class="discreet-badge"><i class="fas fa-shield-alt"></i> Antibacterial • pH Balanced</div>
+            <div class="whatsapp-note">✓ 100% Natural • No Alcohol • No Artificial Sweeteners</div>
+        </div>
+    </div>
+
+    <!-- INGREDIENTS SECTION - 4 items in lane -->
+    <div class="section reveal" id="ingredients">
+        <h2 class="section-title">Pure & Protective Formula</h2>
+        <div class="ingredients-grid">
+            <div class="ingredient-card"><i class="fas fa-leaf"></i><h3>Organic Peppermint</h3><p>Natural cooling sensation & long-lasting fresh breath.</p></div>
+            <div class="ingredient-card"><i class="fas fa-tree"></i><h3>Tea Tree Extract</h3><p>Powerful antibacterial properties prevent oral infections.</p></div>
+            <div class="ingredient-card"><i class="fas fa-seedling"></i><h3>Aloe Vera</h3><p>Soothes & hydrates, maintains healthy oral mucosa.</p></div>
+            <div class="ingredient-card"><i class="fas fa-flask"></i><h3>Xylitol + Zinc</h3><p>Neutralizes bacteria, prevents plaque & bad breath naturally.</p></div>
+        </div>
+    </div>
+
+    <!-- ABOUT PRODUCT SECTION -->
+    <div class="section reveal">
+        <h2 class="section-title">Beyond Freshness — Complete Intimate Care</h2>
+        <div class="about-content">
+            <p>AdultBite LICK IT Oral Spray is crafted for intimate freshness, comfort, and personal confidence. Designed for adults, the gentle formula can be used externally before close moments to provide a cooling, refreshing sensation and enhanced comfort for both partners.</p>
+            <p>Infused with natural peppermint oil, tea tree extract, and soothing botanical ingredients, LICK IT helps maintain freshness while leaving a clean, luxurious feel. Unlike harsh alcohol-based formulas, it is designed to be gentle on sensitive skin and suitable for modern intimate wellness routines.</p>
+            <p><strong>Zero infection risk</strong> — our formula is tested to inhibit bacterial growth without disrupting natural flora. Feel clean, taste fresh, and stay protected.</p>
+        </div>
+    </div>
+
+    <!-- BENEFITS SECTION - 4 items in lane -->
+    <div class="section reveal">
+        <h2 class="section-title">Why LICK IT</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card"><div class="benefit-icon"><i class="fas fa-wind"></i></div><h3>Long-Lasting Freshness</h3><p>8+ hours of natural fragrance without burning sensation.</p></div>
+            <div class="benefit-card"><div class="benefit-icon"><i class="fas fa-bacteria"></i></div><h3>Anti-Infection Shield</h3><p>Tea tree & zinc prevent oral thrush, gum infections.</p></div>
+            <div class="benefit-card"><div class="benefit-icon"><i class="fas fa-heart"></i></div><h3>Intimacy Ready</h3><p>Enhances taste, eliminates odour — perfect for close moments.</p></div>
+            <div class="benefit-card"><div class="benefit-icon"><i class="fas fa-tint"></i></div><h3>Hydrating Formula</h3><p>Alcohol-free, non-drying — safe for daily repeated use.</p></div>
+        </div>
+    </div>
+
+    <!-- HYGIENE HIGHLIGHT -->
+    <div class="section reveal" id="hygiene">
+        <div class="hygiene-highlight">
+            <i class="fas fa-shield-virus"></i>
+            <h3>Complete Oral Protection</h3>
+            <p>Clinically tested to reduce bacteria by 99% within 30 seconds. Prevents bad breath, fights oral infections, and maintains natural pH balance. No irritation — just pure confidence.</p>
+        </div>
+    </div>
+
+    <!-- TRUST SECTION - 5 items but responsive grid handles it -->
+    <div class="section reveal" id="trust">
+        <h2 class="section-title">Certified Excellence</h2>
+        <div class="trust-grid">
+            <div class="trust-item"><i class="fas fa-certificate"></i><h4>FSSAI Certified</h4><p>Meets highest safety standards</p></div>
+            <div class="trust-item"><i class="fas fa-award"></i><h4>ISO 22716</h4><p>GMP certified production</p></div>
+             <div class="trust-item"><i class="fas fa-flask"></i><h4>Dermatologically Tested</h4><p>Safe for sensitive mouths</p></div>
+            <div class="trust-item"><i class="fas fa-user-lock"></i><h4>Adults Only 18+</h4><p>Responsible luxury wellness</p></div>
+        </div>
+    </div>
+</div>
+
+<!-- STICKY ORDER BUTTON -->
+<div class="sticky-order">
+    <button class="sticky-btn" id="stickyOrderBtn"><i class="fab fa-whatsapp"></i> Order LICK IT Now</button>
+</div>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo"><a href="#" class="logo" style="color: white;">ADULT<span>BITE</span></a><p style="margin-top: 12px; font-size:0.75rem;">Elevate every moment.</p></div>
+        <div><h4 style="color:var(--accent); font-size:1rem;">Support</h4><p style="font-size:0.75rem;">support@adultbite.com<br>24/7 Discreet Support</p></div>
+        <div><h4 style="color:var(--accent); font-size:1rem;">Legal</h4><p style="font-size:0.75rem;">Adults only 18+ • For wellness & hygiene</p></div>
+    </div>
+    <div class="footer-copyright">© 2026 AdultBite Luxury Wellness. Pure confidence, naturally.</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    // Initialize Swiper
+    const swiper = new Swiper('.productSwiper', {
+        loop: true,
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        touchRatio: 1,
+        grabCursor: true,
+        speed: 500,
+    });
+
+    // Navbar scroll
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 40) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+    });
+
+    // Mobile toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    revealElements.forEach(el => observer.observe(el));
+
+    // Flavor Data
+    let currentFlavor = 'mango';
+    
+    const flavorData = {
+        mango: {
+            name: 'LICK IT<br>Oral Spray',
+            price: '$29.00',
+            image: 'spray.png',
+            desc: 'Advanced breath freshener with antibacterial properties. Restores natural taste, eliminates odour, and maintains intimate hygiene — all in a discreet, luxurious mist.',
+            tagline: '✦ Intimate Freshness ✦',
+            whatsappName: 'LICK IT Mango Butter Oral Spray'
+        },
+        bubblegum: {
+            name: 'LICK IT<br>Bubblegum Blush',
+            price: '$29.00',
+            image: 'oralbubu.jpeg',
+            desc: 'Playful bubblegum flavored oral spray with a sweet blush finish. Leaves a fun, sweet taste while maintaining antibacterial protection and hygiene.',
+            tagline: '✦ Sweet & Playful ✦',
+            whatsappName: 'LICK IT Bubblegum Blush Oral Spray'
+        }
+    };
+    
+    const productTitle = document.getElementById('productTitle');
+    const priceDisplay = document.getElementById('priceDisplay');
+    const productDesc = document.getElementById('productDesc');
+    const productTagline = document.getElementById('productTagline');
+    const mainProductImage = document.getElementById('mainProductImage');
+    const mangoBtn = document.getElementById('mangoBtn');
+    const bubblegumBtn = document.getElementById('bubblegumBtn');
+    
+    function updateFlavor(flavor) {
+        const data = flavorData[flavor];
+        if (!data) return;
+        currentFlavor = flavor;
+        
+        priceDisplay.classList.add('price-updated');
+        mainProductImage.classList.add('image-updated');
+        
+        productTitle.innerHTML = data.name;
+        priceDisplay.textContent = data.price;
+        productDesc.textContent = data.desc;
+        productTagline.textContent = data.tagline;
+        mainProductImage.src = data.image;
+        
+        // Update swiper slide image
+        const swiperSlides = document.querySelectorAll('.swiper-slide img');
+        if (swiperSlides.length > 0) {
+            swiperSlides[0].src = data.image;
+        }
+        
+        mangoBtn.classList.remove('active');
+        bubblegumBtn.classList.remove('active');
+        if (flavor === 'mango') mangoBtn.classList.add('active');
+        else bubblegumBtn.classList.add('active');
+        
+        setTimeout(() => {
+            priceDisplay.classList.remove('price-updated');
+            mainProductImage.classList.remove('image-updated');
+        }, 300);
+    }
+    
+    function triggerWhatsAppOrder() {
+        const data = flavorData[currentFlavor];
+        const message = `Hello AdultBite, I'd like to order ${data.whatsappName} (${data.price}) for fresh breath and intimate hygiene. Please share payment & shipping details.`;
+        window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+    }
+    
+    mangoBtn.addEventListener('click', () => updateFlavor('mango'));
+    bubblegumBtn.addEventListener('click', () => updateFlavor('bubblegum'));
+    
+    document.getElementById('mainOrderBtn').addEventListener('click', triggerWhatsAppOrder);
+    document.getElementById('stickyOrderBtn').addEventListener('click', triggerWhatsAppOrder);
+    
+    updateFlavor('mango');
+</script>
+</body>
+</html>

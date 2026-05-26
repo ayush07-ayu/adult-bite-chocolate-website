@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="AdultBite – Premium Wellness Luxury. Crafted for confidence, intimacy & performance. Trusted by 1+ million Indians.">
+    <title>ADULTBITE | Premium Wellness Luxury</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4B0118;
+            --primary-light: #701c34;
+            --bg-light: #FFFFFF;
+            --bg-secondary: #F9F7F5;
+            --text-main: #1A1A1A;
+            --text-muted: #5a5a5a;
+            --accent: #D4AF37;
+            --accent-glow: rgba(212, 175, 55, 0.25);
+            --glass: rgba(255, 255, 255, 0.92);
+            --shadow-sm: 0 8px 20px rgba(0,0,0,0.03);
+            --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.08);
+            --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Logo Styles - Perfectly Centered on all devices */
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+        }
+
+      .logo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-img{
+    height: 130px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    object-fit: contain;
+    transition: var(--transition);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+@media screen and (max-width: 768px){
+    .logo-img{
+        height: 130px;
+    }
+}
+        
+        .logo-img:hover {
+            transform: scale(1.02);
+            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.4));
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        /* Custom scrollbar - minimized size */
+        ::-webkit-scrollbar { width: 3px; height: 3px; }
+        ::-webkit-scrollbar-track { background: linear-gradient(180deg, #2a0210 0%, #1a0108 100%); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: radial-gradient(ellipse at 30% 40%, var(--accent) 0%, #b8922a 60%, #7a5c1a 100%); border-radius: 20px; }
+
+        h1, h2, h3, .hero-content h1, .section-title h2, .benefit-item h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.85s ease-out, transform 0.85s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navigation - Clean layout */
+        nav {
+            position: static;
+            top: 5%;
+            width: 100%;
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2100;
+            transition: var(--transition);
+            background: #4b0118;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        nav.scrolled {
+            background: #4b0118;
+            padding: 8px 5%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Left side group (search icon + profile icon) */
+        .nav-left-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        /* Right side group (dots menu only) */
+        .nav-right-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        /* Icon buttons styling */
+        .nav-icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.3rem;
+            color: white;
+            transition: 0.2s;
+            padding: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            width: 40px;
+            height: 40px;
+        }
+        .nav-icon-btn:hover {
+            background: var(--accent);
+            color: #4b0118;
+            transform: scale(1.05);
+        }
+
+        /* Search bar overlay */
+        .search-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            z-index: 2300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s ease;
+        }
+        .search-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .search-container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            padding: 8px 20px;
+            box-shadow: 0 0 30px rgba(212,175,55,0.3);
+            transform: scale(0.9);
+            transition: 0.3s;
+        }
+        .search-overlay.active .search-container {
+            transform: scale(1);
+        }
+        .search-container input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 18px 10px;
+            font-size: 1.1rem;
+            background: transparent;
+            color: #4b0118;
+        }
+        .search-container button {
+            background: var(--accent);
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #4b0118;
+            transition: 0.2s;
+        }
+        .search-container button:hover {
+            background: #4b0118;
+            color: var(--accent);
+        }
+        .close-search {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            background: rgba(255,255,255,0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .close-search:hover {
+            background: var(--accent);
+            color: #4b0118;
+        }
+        .search-results {
+            position: fixed;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 800px;
+            background: white;
+            border-radius: 28px;
+            padding: 20px;
+            max-height: 60vh;
+            overflow-y: auto;
+            z-index: 2301;
+            display: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .search-results.active {
+            display: block;
+        }
+        .search-result-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .search-result-item:hover {
+            background: #f9f3e8;
+            padding-left: 20px;
+        }
+        .search-result-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .no-results {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+
+        /* Hide desktop nav links - completely removed from right side */
+        .nav-links {
+            display: none !important;
+        }
+
+        /* Side Drawer Menu (for dots menu on right) */
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            height: 100vh;
+            background: #4b0118f2;
+            backdrop-filter: blur(16px);
+            z-index: 2200;
+            transition: right 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            padding: 100px 28px;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+        .side-drawer.active {
+            right: 0;
+        }
+        .side-drawer a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .side-drawer a i {
+            width: 28px;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        .side-drawer a:hover {
+            color: var(--accent);
+            padding-left: 8px;
+        }
+        .close-drawer {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+        .close-drawer:hover {
+            background: var(--accent);
+            color: #4b0118;
+        }
+
+        /* Profile Drawer (left side) */
+        .profile-drawer {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 320px;
+            height: 100vh;
+            background: #4b0118f2;
+            backdrop-filter: blur(16px);
+            z-index: 2200;
+            transition: left 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            padding: 100px 28px;
+            box-shadow: 5px 0 30px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+        .profile-drawer.active {
+            left: 0;
+        }
+        .profile-drawer .close-profile {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: white;
+            cursor: pointer;
+            background: rgba(255,255,255,0.1);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-drawer .profile-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .profile-drawer .profile-info i {
+            font-size: 5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        .profile-drawer .profile-info h3 {
+            color: white;
+            font-size: 1.3rem;
+        }
+        .profile-drawer .profile-info p {
+            color: #ccc;
+            font-size: 0.8rem;
+        }
+        .profile-drawer .profile-link {
+            color: white;
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(212,175,55,0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.2s;
+        }
+        .profile-drawer .profile-link i {
+            width: 28px;
+            color: var(--accent);
+        }
+        .profile-drawer .profile-link:hover {
+            color: var(--accent);
+            padding-left: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-icon-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 1.1rem;
+            }
+            .nav-left-group {
+                gap: 8px;
+            }
+        }
+        
+        /* COVER PHOTO - updated: moved upward, reduced margin-top */
+        .cover-banner {
+            width: 100%;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+            line-height: 0;
+            margin-top: 0px;  /* removed previous margin-top, now sits flush below circles */
+        }
+        .cover-image {
+            width: 100%;
+            height: auto;
+            min-height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .cover-image { min-height: 280px; }
+            .cover-banner { margin-top: 0px; }  /* consistent zero margin on mobile */
+        }
+
+        /* Circle Videos Section */
+        .category-wrapper {
+            padding: 80px 5% 30px;
+            background: var(--bg-light);
+        }
+        .category-section {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .category-item {
+            text-align: center;
+            width: 105px;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        .video-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 10px;
+            border: 2.5px solid #f0e9e2;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+        }
+        .video-circle video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .category-item p {
+            font-weight: 600;
+            font-size: 0.75rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .category-item:hover .video-circle {
+            transform: scale(1.06);
+            border-color: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            .category-wrapper { padding: 60px 0 20px 0; }
+            .category-section {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 18px;
+                padding: 10px 5% 20px 5%;
+                justify-content: flex-start;
+            }
+            .category-item { scroll-snap-align: start; width: 85px; }
+            .video-circle { width: 75px; height: 75px; }
+        }
+
+        /* Products grid - FIXED ALIGNMENT for buttons */
+        .section-padding {
+            padding: 70px 5%;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 35px;
+        }
+        /* PRODUCT CARD: now uses flex column layout to ensure button sticks to bottom */
+        .product-card {
+            background: white;
+            border-radius: 28px;
+            padding: 22px 18px 24px 18px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #f3efe9;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .product-img {
+            width: 100%;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            background: #faf7f2;
+        }
+        .product-card h3 {
+            font-size: 1.25rem;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+        .price {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin: 8px 0 16px 0;
+        }
+        /* Button wrapper ensures consistent alignment at bottom */
+        .product-btn-wrapper {
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+        }
+        .btn-coming {
+            background: #f0ebe4;
+            border: none;
+            color: #7a6a5c;
+            cursor: default;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            display: inline-block;
+            transition: 0.2s;
+        }
+        .btn-add {
+            background: var(--accent);
+            color: #4b0118;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.75rem;
+            display: inline-block;
+            transition: 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-add:hover {
+            background: #4b0118;
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .product-card { padding: 15px 12px 18px; }
+            .section-title h2 { font-size: 1.9rem; }
+            .product-card h3 { font-size: 1rem; }
+            .price { font-size: 1rem; margin: 6px 0 12px 0; }
+            .btn-add, .btn-coming { padding: 6px 16px; font-size: 0.7rem; }
+        }
+        
+        /* Marquee banner */
+        .marquee-container{
+            width:100%;
+            overflow:hidden;
+            background:linear-gradient(95deg,var(--primary) 0%, #2f0310 100%);
+            padding:14px 0;
+            position:relative;
+        }
+        .marquee-track{
+            display:flex;
+            width:max-content;
+            animation:scrollText 29s linear infinite;
+        }
+        .marquee-content{
+            white-space:nowrap;
+            font-weight:500;
+            letter-spacing:3px;
+            text-transform:uppercase;
+            font-size:0.65rem;
+            color:var(--accent);
+            padding-right:80px;
+            flex-shrink:0;
+        }
+        @keyframes scrollText{
+            from{ transform:translateX(0); }
+            to{ transform:translateX(-50%); }
+        }
+
+        /* Trust section */
+        .trust-hero {
+            position: relative;
+            background: url('trusted_1.webp') center/cover fixed;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        .trust-overlay {
+            position: absolute;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(0,0,0,0.75);
+        }
+        .trust-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            padding: 70px 5%;
+            color: white;
+        }
+        .trust-stats {
+            display: flex;
+            justify-content: center;
+            gap: 45px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display';
+            color: var(--accent);
+        }
+        
+        /* Discreet packaging */
+        .discreet-section {
+            background: var(--bg-secondary);
+        }
+        .discreet-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .discreet-image {
+            flex: 1;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .discreet-image img {
+            width: 100%;
+            border-radius: 28px;
+            display: block;
+            object-fit: cover;
+            max-height: 350px;
+        }
+        .discreet-text {
+            flex: 1;
+            text-align: left;
+        }
+        .icon-row {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .icon-feature i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+        .icon-feature p {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .discreet-wrapper { flex-direction: column; text-align: center; }
+            .discreet-text { text-align: center; }
+            .icon-row { justify-content: center; }
+        }
+        
+        .nature-video-small {
+            width: 100%;
+            border-radius: 28px;
+            margin-top: 20px;
+            max-height: 300px;
+            object-fit: cover;
+        }
+        
+        .mission-box {
+            background: linear-gradient(135deg, #fff9f0 0%, #fdf3e6 100%);
+            border-radius: 32px;
+            padding: 48px 32px;
+            margin-top: 60px;
+            text-align: center;
+            border: 1px solid rgba(212,175,55,0.3);
+        }
+        .age-restriction {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        
+        .certs-wrapper{
+            background:#fffbf5;
+            padding:70px 5%;
+        }
+        .cert-single-card{
+            background:white;
+            border-radius:48px;
+            max-width:1200px;
+            margin:0 auto;
+            padding:50px 40px;
+            text-align:center;
+            box-shadow:0 20px 40px rgba(0,0,0,0.06);
+        }
+        .cert-badges-group{
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:30px;
+            margin:40px 0 20px;
+        }
+        .cert-badge-item{
+            text-align:center;
+            padding:25px 15px;
+            background:#fefaf5;
+            border-radius:28px;
+        }
+        .cert-badge-item i{
+            font-size:2.5rem;
+            color:var(--accent);
+        }
+        @media (max-width:600px){
+            .cert-badges-group{ grid-template-columns:1fr; }
+        }
+        
+        .benefits-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        @media (max-width: 850px) { .benefits-content { grid-template-columns: 1fr; } }
+        
+        .contact-founder {
+            background: white;
+            text-align: center;
+            padding: 60px 5%;
+        }
+        .circular-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            margin-bottom: 20px;
+        }
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        .contact-btn {
+            background: transparent;
+            border: 1.5px solid var(--primary);
+            padding: 10px 26px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 5% 30px;
+            border-top: 4px solid var(--accent);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 550px) { .footer-grid { grid-template-columns: 1fr; } }
+        .social-icons a {
+            color: var(--accent);
+            font-size: 1.3rem;
+            margin-right: 15px;
+        }
+        .disclaimer {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 30px;
+            font-size: 0.7rem;
+        }
+    </style>
+</head>
+<body>
+<div class="marquee-container">
+    <div class="marquee-track">
+        <div class="marquee-content">
+            ✨ Elevate Every Intimate Moment ✨ Crafted With Natural Ingredients ✨ Premium Couple Wellness ✨ Feel Confident. Feel Desired. ✨ Luxury You Can Trust ✨
+        </div>
+        <div class="marquee-content">
+            ✨ Elevate Every Intimate Moment ✨ Crafted With Natural Ingredients ✨ Premium Couple Wellness ✨ Feel Confident. Feel Desired. ✨ Luxury You Can Trust ✨
+        </div>
+    </div>
+</div>
+
+<nav id="navbar">
+    <div class="nav-left-group">
+        <div class="nav-icon-btn" id="searchIcon">
+            <i class="fas fa-search"></i>
+        </div>
+        <div class="nav-icon-btn" id="profileIcon">
+            <i class="fas fa-user-circle"></i>
+        </div>
+    </div>
+    <div class="logo-wrapper">
+        <a href="#" class="logo-link">
+            <img src="mainlogo.png" alt="AdultBite Logo" class="logo-img">
+        </a>
+    </div>
+    <div class="nav-right-group">
+        <div class="nav-icon-btn" id="dotsMenuTrigger">
+            <i class="fas fa-ellipsis-v"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay">
+    <div class="close-search" id="closeSearchBtn"><i class="fas fa-times"></i></div>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for products... Chocolate, Spray, Cards..." autocomplete="off">
+        <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+</div>
+
+<!-- Side Drawer & Profile Drawer -->
+<div class="side-drawer" id="sideDrawer">
+    <div class="close-drawer" id="closeDrawerBtn"><i class="fas fa-times"></i></div>
+    <a href="#top"><i class="fas fa-home"></i> Home</a>
+    <a href="#products"><i class="fas fa-box-open"></i> Collection</a>
+    <a href="#storysection"><i class="fas fa-book-open"></i> Our Story</a>
+    <a href="#certs"><i class="fas fa-certificate"></i> Quality</a>
+    <a href="#contact-founder"><i class="fas fa-headset"></i> Connect</a>
+</div>
+
+<div class="profile-drawer" id="profileDrawer">
+    <div class="close-profile" id="closeProfileBtn"><i class="fas fa-times"></i></div>
+    <div class="profile-info">
+        <i class="fas fa-user-circle"></i>
+        <h3>Wellness Member</h3>
+        <p>Sign in for exclusive offers</p>
+    </div>
+   
+    <a href="#storysection" class="profile-link"><i class="fas fa-headset"></i> Support</a>
+</div>
+
+<script>
+const productsData = [
+    { name: "Chocolate", price: "₹300", img: "chocolate3.png", customLink: "chocolate.html", category: "chocolate", comingSoon: false },
+    { name: "Oral Spray", price: "₹400", img: "spray.png", customLink: "oral_spray.html", category: "spray", comingSoon: false },
+    { name: "Playing Cards", price: "₹150", img: "main_cards.jpeg", customLink: "cards.html", category: "cards", comingSoon: false },
+    { name: "Delay Spray", price: "₹300", img: "mian_delay.png", customLink: "#", category: "delay", comingSoon: true },
+    { name: "Premium Condoms", price: "₹100", img: "main_condoms.png", customLink: "#", category: "condoms", comingSoon: true },
+    { name: "Lubricant", price: "₹300", img: "mian_lube.jpeg", customLink: "#", category: "lube", comingSoon: true }
+];
+</script>
+
+<!-- CIRCLE VIDEOS SECTION -->
+<div class="category-wrapper">
+    <div class="section-title reveal" style="margin-bottom: 20px;">
+        <h2>Your next guilty pleasure awaits</h2>
+        <p>Luxury wellness essentials crafted for confidence & performance.</p>
+    </div>
+    <div class="category-section">
+        <div class="category-item reveal"><div class="video-circle"><video autoplay muted loop playsinline><source src="chocolatefront.mp4" type="video/mp4"></video></div><p>Chocolate</p></div>
+        <div class="category-item reveal"><div class="video-circle"><video autoplay muted loop playsinline><source src="cards.mp4" type="video/mp4"></video></div><p>Cards</p></div>
+        <div class="category-item reveal"><div class="video-circle"><video autoplay muted loop playsinline><source src="delay.mp4" type="video/mp4"></video></div><p>Delay Spray</p></div>
+        <div class="category-item reveal"><div class="video-circle"><video autoplay muted loop playsinline><source src="oral_spary.mp4" type="video/mp4"></video></div><p>Oral Spray</p></div>
+        <div class="category-item reveal"><div class="video-circle"><video autoplay muted loop playsinline><source src="lubricant.mp4" type="video/mp4"></video></div><p>Lubricants</p></div>
+        <div class="category-item reveal"><div class="video-circle"><video autoplay muted loop playsinline><source src="condom1.mp4" type="video/mp4"></video></div><p>Condoms</p></div>
+    </div>
+</div>
+
+<!-- COVER PHOTO - moved upward, sits directly below circles -->
+<div class="cover-banner reveal">
+    <img class="cover-image" src="front.png" alt="Luxury Wellness Cover">
+</div>
+
+<!-- LIVE SALE BANNER -->
+<div class="marquee-container">
+    <div class="marquee-track">
+        <div class="marquee-content">
+            ✨ Elevate Every Intimate Moment ✨ Crafted With Natural Ingredients ✨ Premium Couple Wellness ✨ Feel Confident. Feel Desired. ✨ Luxury You Can Trust ✨
+        </div>
+        <div class="marquee-content">
+            ✨ Elevate Every Intimate Moment ✨ Crafted With Natural Ingredients ✨ Premium Couple Wellness ✨ Feel Confident. Feel Desired. ✨ Luxury You Can Trust ✨
+        </div>
+    </div>
+</div>
+
+<!-- PRODUCTS section with perfectly aligned buttons -->
+<section id="products" class="section-padding">
+    <div class="section-title reveal"><h2>The Signature Collection</h2><p>Potent Wellness In Every Bite & Beyond</p></div>
+    <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- TRUST Section -->
+<section class="trust-hero">
+    <div class="trust-overlay"></div>
+    <div class="trust-content reveal">
+        <h2 style="font-size:2.8rem;">Trusted by 1+ Lakh Indians</h2>
+        <p style="font-size:1.1rem;">Thousands of couples choose AdultBite for confidence, intimacy and wellness.</p>
+        <div class="trust-stats">
+            <div class="stat-item"><h3>1L+</h3><p>Customers</p></div>
+            <div class="stat-item"><h3>4.9★</h3><p>Rating</p></div>
+            <div class="stat-item"><h3>100%</h3><p>Discreet Delivery</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Discreet Packaging -->
+<section class="section-padding discreet-section">
+    <div class="discreet-wrapper">
+        <div class="discreet-image reveal">
+            <img src="packing.webp" alt="Discreet Packaging" onerror="this.src='https://placehold.co/600x400/4b0118/white?text=Discreet+Packaging'">
+        </div>
+        <div class="discreet-text reveal">
+            <h3>100% Discreet Packaging</h3>
+            <p>Your privacy matters. Every order arrives in secure premium packaging with complete confidentiality.</p>
+            <div class="icon-row">
+                <div class="icon-feature"><i class="fas fa-box"></i><p>Plain Outer Box</p></div>
+                <div class="icon-feature"><i class="fas fa-truck"></i><p>Secure Delivery</p></div>
+                <div class="icon-feature"><i class="fas fa-lock"></i><p>Privacy Guarantee</p></div>
+                <div class="icon-feature"><i class="fas fa-eye-slash"></i><p>No Brand Label</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Story section -->
+<section class="section-padding">
+    <div class="benefits-content">
+        <div class="reveal"><h2 style="font-size: 2.5rem; color: var(--primary);">Natural Science. <br>Luxury Indulgence.</h2><p style="margin:20px 0;">AdultBite combines ancient herbal wisdom with premium cacao for modern adult wellness.</p><video autoplay muted loop playsinline class="nature-video-small"><source src="nature.mp4" type="video/mp4"></video></div>
+    </div>
+    <div id="storysection" class="mission-box reveal"><h3>Our Story</h3><p>Adult Bite is on a mission to make intimacy wellness open, approachable, and confidence boosting for modern adults.</p><p>We create bold products that help people feel closer, happier, and more connected.</p><span class="age-restriction">21+ only</span></div>
+</section>
+
+<!-- Contact Founder -->
+<section id="contact-founder" class="contact-founder">
+    <div class="reveal"><img src="team.jpeg" alt="founder" class="circular-img"><h2 style="font-size:2rem; color:var(--primary);">Talk With Our Wellness Team</h2><p>Need guidance or product support? We're here to help you privately.</p>
+    <div class="contact-buttons"><a href="https://wa.me/9306543514?text=Hi%20AdultBite,%20I%20visited%20your%20website" class="contact-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="mailto:support@adultbite.com" class="contact-btn"><i class="far fa-envelope"></i> Email</a><a href="https://instagram.com/adult.bite" class="contact-btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></div>
+    </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs" class="certs-wrapper">
+    <div class="section-title reveal"><h2>Trusted Quality</h2><p>Our standards are as premium as our products</p></div>
+    <div class="cert-single-card reveal"><div class="cert-badges-group"><div class="cert-badge-item"><i class="fas fa-certificate"></i><h4>FSSAI Certified</h4><p>Food safety & quality</p></div><div class="cert-badge-item"><i class="fas fa-award"></i><h4>ISO Certified</h4><p>Excellence in mfg</p></div></div><span style="display:inline-block; margin-top:20px; font-weight:500; color:var(--accent);">✔ Premium Wellness Certified</span></div>
+</section>
+
+<footer>
+    <div class="footer-grid"><div class="footer-links"><img src="mainlogo.png" alt="AdultBite" style="height: 42px;"><div class="logo-tagline" style="color:var(--accent);">Melt • Moan • More</div><p style="color:#ccc;">Empowering your intimate moments.</p><div class="social-icons"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="footer-links"><h4>Quick Links</h4><ul><li><a href="#top">Home</a></li><li><a href="#products">Shop All</a></li></ul></div><div class="footer-links"><h4>Support</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Contact</a></li></ul></div><div class="footer-links"><h4>Contact</h4><p>support@adultbite.com</p></div></div>
+    <div class="disclaimer"><p><i class="fas fa-exclamation-triangle"></i> ADULTS ONLY: You must be 21+ to purchase.</p><p>&copy; 2026 AdultBite Luxury Wellness.</p></div>
+</footer>
+
+<script>
+    function renderProducts() {
+        const grid = document.getElementById('productGrid');
+        if(!grid) return;
+        grid.innerHTML = productsData.map(p => {
+            if(p.comingSoon) {
+                return `
+                    <div class="product-card reveal">
+                        <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
+                        <h3>${p.name}</h3>
+                        <div class="price">${p.price}</div>
+                        <div class="product-btn-wrapper"><button class="btn-coming" disabled>Coming Soon</button></div>
+                    </div>
+                `;
+            } else {
+                return `
+                    <div class="product-card reveal">
+                        <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
+                        <h3>${p.name}</h3>
+                        <div class="price">${p.price}</div>
+                        <div class="product-btn-wrapper"><a href="${p.customLink}" class="btn-add">Add To Cart</a></div>
+                    </div>
+                `;
+            }
+        }).join('');
+        observerTrigger();
+    }
+    renderProducts();
+    
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); });
+    
+    const dotsTrigger = document.getElementById('dotsMenuTrigger');
+    const sideDrawer = document.getElementById('sideDrawer');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const profileIcon = document.getElementById('profileIcon');
+    const profileDrawer = document.getElementById('profileDrawer');
+    const closeProfileBtn = document.getElementById('closeProfileBtn');
+    const searchIcon = document.getElementById('searchIcon');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const closeSearchBtn = document.getElementById('closeSearchBtn');
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const searchResultsDiv = document.getElementById('searchResults');
+    
+    function performSearch() {
+        const query = searchInput.value.toLowerCase().trim();
+        if(!query) { searchResultsDiv.classList.remove('active'); return; }
+        const filtered = productsData.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
+        if(filtered.length === 0) {
+            searchResultsDiv.innerHTML = '<div class="no-results">✨ No products found. Try "Chocolate" or "Spray"</div>';
+        } else {
+            searchResultsDiv.innerHTML = filtered.map(p => `
+                <div class="search-result-item" onclick="window.location.href='${p.customLink !== '#' ? p.customLink : '#'}'; document.getElementById('searchOverlay').classList.remove('active'); this.closest('.search-results').classList.remove('active');">
+                    <img src="${p.img}" onerror="this.src='https://placehold.co/50x50/f5f0ea/4b0118'">
+                    <div><strong>${p.name}</strong><br>${p.price}</div>
+                </div>
+            `).join('');
+        }
+        searchResultsDiv.classList.add('active');
+    }
+    
+    if(searchIcon) searchIcon.addEventListener('click', () => { searchOverlay.classList.add('active'); searchInput.focus(); searchResultsDiv.classList.remove('active'); });
+    if(closeSearchBtn) closeSearchBtn.addEventListener('click', () => { searchOverlay.classList.remove('active'); searchResultsDiv.classList.remove('active'); });
+    if(searchBtn) searchBtn.addEventListener('click', performSearch);
+    if(searchInput) searchInput.addEventListener('keyup', (e) => { if(e.key === 'Enter') performSearch(); else if(searchInput.value === '') searchResultsDiv.classList.remove('active'); else performSearch(); });
+    
+    if(dotsTrigger) dotsTrigger.addEventListener('click', (e) => { e.stopPropagation(); sideDrawer.classList.add('active'); });
+    if(closeDrawerBtn) closeDrawerBtn.addEventListener('click', () => sideDrawer.classList.remove('active'));
+    if(profileIcon) profileIcon.addEventListener('click', (e) => { e.stopPropagation(); profileDrawer.classList.add('active'); });
+    if(closeProfileBtn) closeProfileBtn.addEventListener('click', () => profileDrawer.classList.remove('active'));
+    
+    document.querySelectorAll('.side-drawer a, .profile-drawer a').forEach(link => {
+        link.addEventListener('click', () => { sideDrawer.classList.remove('active'); profileDrawer.classList.remove('active'); });
+    });
+    document.addEventListener('click', (e) => {
+        if(sideDrawer?.classList.contains('active') && !sideDrawer.contains(e.target) && !dotsTrigger?.contains(e.target)) sideDrawer.classList.remove('active');
+        if(profileDrawer?.classList.contains('active') && !profileDrawer.contains(e.target) && !profileIcon?.contains(e.target)) profileDrawer.classList.remove('active');
+        if(searchOverlay?.classList.contains('active') && !searchOverlay.contains(e.target) && e.target !== searchIcon && !searchIcon?.contains(e.target)) {
+            searchOverlay.classList.remove('active');
+            searchResultsDiv.classList.remove('active');
+        }
+    });
+    
+    function observerTrigger() {
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); } }); }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+    observerTrigger();
+</script>
+</body>
+</html>
