@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Shopify Product | Dark Header</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f5f5f7;
+      min-height: 100vh;
+    }
+
+    /* ----- DARK HEADER STYLES (Deep dark color) ----- */
+   .dark-header {
+    height: 50px; /* kam height */
+    background-color: #4b0118;
+    color: #ffffff;
+    padding: 0 2rem; /* upar niche padding hata di */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    /* Back button modern style */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #000000;
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      font-family: inherit;
+      letter-spacing: 0.3px;
+    }
+
+    .back-btn:hover {
+      background-color: #3a3f48;
+      transform: translateY(-1px);
+    }
+
+    .back-btn:active {
+      transform: translateY(1px);
+    }
+
+    /* Logo area - now holds an IMAGE (user can replace with any image URL) */
+    .logo-area {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Style for the actual logo image - fully customizable */
+   .site-logo {
+    height: 36px;
+}
+
+    /* Optional hover effect for logo */
+    .site-logo:hover {
+      opacity: 0.9;
+    }
+
+    /* main content wrapper - NO extra card/section above product, directly component */
+    .shopify-root {
+      max-width: 1280px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ensure product component takes full width and no extra spacing above */
+    #product-component-1779876449961 {
+      width: 100%;
+    }
+
+    /* For potential loading state */
+    .shopify-placeholder {
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border-radius: 28px;
+      color: #000000;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+    }
+
+    /* responsive styles */
+    @media (max-width: 700px) {
+      .dark-header {
+        padding: 0.7rem 1.2rem;
+      }
+      .back-btn {
+        padding: 6px 16px;
+        font-size: 0.85rem;
+      }
+      .site-logo {
+        height: 36px;
+        max-width: 140px;
+      }
+      .shopify-root {
+        padding: 0 1rem;
+        margin: 1.2rem auto;
+      }
+    }
+
+    /* Back icon */
+    .back-icon-symbol {
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    /* remove any default extra margins on product container */
+    #product-component-1779876449961 {
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+
+<!-- DARK HEADER: Logo on LEFT side (image), Back button on RIGHT side -->
+<header class="dark-header">
+  <!-- LEFT side: Logo area - now uses an IMAGE tag. Replace the src with your actual image URL -->
+  <div class="logo-area">
+    <img 
+      class="site-logo" 
+      id="customLogoImage"
+      src="mainlogo.png" 
+      alt="Brand Logo"
+      style="border-radius: 8px;"
+    >
+    <!-- 
+      IMPORTANT: To add your own logo image, simply replace the src attribute above with your image URL.
+      Example: src="https://yourwebsite.com/logo.png" or a local path like "images/logo.png"
+      The image will automatically adapt to the dark header while keeping its original colors.
+    -->
+  </div>
+
+  <!-- RIGHT side: Back button -->
+  <button class="back-btn" id="backButton" aria-label="Go back">
+    <span class="back-icon-symbol">←</span> Back
+  </button>
+</header>
+
+<main class="shopify-root">
+  <!-- Direct product component without any extra card wrapper or extra div above main product -->
+  <div id='product-component-1779876449961'></div>
+</main>
+
+<!-- Shopify Buy Button library + initialization -->
+<script type="text/javascript">
+/*<![CDATA[*/
+(function () {
+  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+  if (window.ShopifyBuy) {
+    if (window.ShopifyBuy.UI) {
+      ShopifyBuyInit();
+    } else {
+      loadScript();
+    }
+  } else {
+    loadScript();
+  }
+  function loadScript() {
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = scriptURL;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+    script.onload = ShopifyBuyInit;
+  }
+  function ShopifyBuyInit() {
+    var client = ShopifyBuy.buildClient({
+      domain: 'xez37s-kn.myshopify.com',
+      storefrontAccessToken: 'f705306618b8b395f068f0155d4692f4',
+    });
+    ShopifyBuy.UI.onReady(client).then(function (ui) {
+      ui.createComponent('product', {
+        id: '8889463144622',
+        node: document.getElementById('product-component-1779876449961'),
+        moneyFormat: 'Rs.%20%7B%7Bamount%7D%7D',
+        options: {
+  "product": {
+    "styles": {
+      "product": {
+        "@media (min-width: 601px)": {
+          "max-width": "100%",
+          "margin-left": "0",
+          "margin-bottom": "50px"
+        },
+        "text-align": "left"
+      },
+      "title": {
+        "font-size": "26px"
+      },
+      "button": {
+        "font-family": "Gill Sans, sans-serif",
+        ":hover": {
+          "background-color": "#000000"
+        },
+        "background-color": "#000000",
+        ":focus": {
+          "background-color": "#000000"
+        },
+        "border-radius": "15px"
+      },
+      "price": {
+        "font-size": "18px"
+      },
+      "compareAt": {
+        "font-size": "15.299999999999999px"
+      },
+      "unitPrice": {
+        "font-size": "15.299999999999999px"
+      }
+    },
+    "layout": "horizontal",
+    "contents": {
+      "img": false,
+      "imgWithCarousel": true,
+      "description": true
+    },
+    "width": "100%",
+    "text": {
+      "button": "Add to cart"
+    }
+  },
+  "productSet": {
+    "styles": {
+      "products": {
+        "@media (min-width: 601px)": {
+          "margin-left": "-20px"
+        }
+      }
+    }
+  },
+  "modalProduct": {
+    "contents": {
+      "img": false,
+      "imgWithCarousel": true,
+      "button": false,
+      "buttonWithQuantity": true
+    },
+    "styles": {
+      "product": {
+        "@media (min-width: 601px)": {
+          "max-width": "100%",
+          "margin-left": "0px",
+          "margin-bottom": "0px"
+        }
+      },
+      "button": {
+        "font-family": "Gill Sans, sans-serif",
+        ":hover": {
+          "background-color": "#000000"
+        },
+        "background-color": "#000000",
+        ":focus": {
+          "background-color": "#000000"
+        },
+        "border-radius": "15px"
+      },
+      "title": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "bold",
+        "font-size": "26px",
+        "color": "#4c4c4c"
+      },
+      "price": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "normal",
+        "font-size": "18px",
+        "color": "#4c4c4c"
+      },
+      "compareAt": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "normal",
+        "font-size": "15.299999999999999px",
+        "color": "#4c4c4c"
+      },
+      "unitPrice": {
+        "font-family": "Helvetica Neue, sans-serif",
+        "font-weight": "normal",
+        "font-size": "15.299999999999999px",
+        "color": "#4c4c4c"
+      }
+    },
+    "text": {
+      "button": "Add to cart"
+    }
+  },
+  "option": {},
+  "cart": {
+    "styles": {
+      "button": {
+        "font-family": "Gill Sans, sans-serif",
+        ":hover": {
+          "background-color": "#000000"
+        },
+        "background-color": "#000000",
+        ":focus": {
+          "background-color": "#000000"
+        },
+        "border-radius": "15px"
+      }
+    },
+    "text": {
+      "total": "Subtotal",
+      "button": "Checkout"
+    }
+  },
+  "toggle": {
+    "styles": {
+      "toggle": {
+        "font-family": "Gill Sans, sans-serif",
+        "background-color": "#000000",
+        ":hover": {
+          "background-color": "#000000"
+        },
+        ":focus": {
+          "background-color": "#000000"
+        }
+      }
+    }
+  }
+},
+      });
+    }).catch(function(err) {
+      console.error('Shopify Buy Button Error:', err);
+      var container = document.getElementById('product-component-1779876449961');
+      if (container) {
+        container.innerHTML = '<div style="padding:2rem;text-align:center;background:#fff;border-radius:28px;color:#b91c1c;box-shadow:0 4px 12px rgba(0,0,0,0.05);">⚠️ Unable to load product. Please check configuration or network.</div>';
+      }
+    });
+  }
+})();
+/*]]>*/
+</script>
+
+<!-- Back button functionality (simple history back) -->
+<script>
+  (function() {
+    const backBtn = document.getElementById('backButton');
+    if (backBtn) {
+      backBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          console.log("No previous page in history.");
+          alert("No previous page to go back to.");
+        }
+      });
+    }
+
+    // Ensure no extra card wrapper or extra elements are added above the product.
+    const styleNode = document.createElement('style');
+    styleNode.textContent = `
+      /* Remove any potential margin-top on the first child inside product component */
+      #product-component-1779876449961 .shopify-buy__product {
+        margin-top: 0 !important;
+      }
+      #product-component-1779876449961 {
+        margin-top: 0;
+      }
+      .shopify-buy__product {
+        background: transparent;
+      }
+    `;
+    document.head.appendChild(styleNode);
+  })();
+</script>
+
+<!-- Additional style to keep clean layout and ensure logo image looks great -->
+<style>
+  /* Make sure no margin/padding on the container that would create extra visual gap */
+  .shopify-root {
+    background: transparent;
+  }
+  #product-component-1779876449961 {
+    background: transparent;
+  }
+  .back-btn:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+    border-radius: 40px;
+  }
+  /* Ensure any logo image loads with proper aspect ratio */
+.site-logo {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    background: transparent;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .dark-header {
+        padding: 0.7rem 1rem;
+    }
+
+    .site-logo {
+        max-width: 120px;
+        height: 500px;
+    }
+}
+  /* Optional: remove default blue border from images */
+  img {
+    border: 0;
+  }
+</style>
+
+
+</body>
+</html>
