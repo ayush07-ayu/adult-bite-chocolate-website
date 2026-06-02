@@ -432,14 +432,14 @@
             }
         }
         
-        /* COVER PHOTO - updated: moved upward, reduced margin-top */
+        /* COVER PHOTO */
         .cover-banner {
             width: 100%;
             margin: 0;
             position: relative;
             overflow: hidden;
             line-height: 0;
-            margin-top: 0px;  /* removed previous margin-top, now sits flush below circles */
+            margin-top: 0px;
         }
         .cover-image {
             width: 100%;
@@ -450,69 +450,60 @@
         }
         @media (max-width: 768px) {
             .cover-image { min-height: 280px; }
-            .cover-banner { margin-top: 0px; }  /* consistent zero margin on mobile */
+            .cover-banner { margin-top: 0px; }
         }
 
-        /* Circle Videos Section */
-        .category-wrapper {
-            padding: 80px 5% 30px;
+        /* Explore Button Section */
+        .explore-button-section {
+            padding: 80px 5% 40px;
             background: var(--bg-light);
-        }
-        .category-section {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-        .category-item {
             text-align: center;
-            width: 105px;
-            flex-shrink: 0;
-            transition: var(--transition);
         }
-        .video-circle {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 0 auto 10px;
-            border: 2.5px solid #f0e9e2;
-            transition: var(--transition);
-            cursor: pointer;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-        }
-        .video-circle video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .category-item p {
+        .explore-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            font-size: 1.4rem;
             font-weight: 600;
-            font-size: 0.75rem;
-            color: var(--primary);
-            text-transform: uppercase;
+            padding: 18px 48px;
+            border-radius: 60px;
+            text-decoration: none;
             letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 15px 30px rgba(75, 1, 24, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            font-family: 'Poppins', sans-serif;
         }
-        .category-item:hover .video-circle {
-            transform: scale(1.06);
+        .explore-btn i {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+        .explore-btn:hover {
+            transform: translateY(-4px);
+            background: linear-gradient(135deg, #6b0323 0%, #4B0118 100%);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.25);
             border-color: var(--accent);
+            color: var(--accent);
         }
-        
+        .explore-btn:hover i {
+            transform: translateX(5px);
+            color: var(--accent);
+        }
         @media (max-width: 768px) {
-            .category-wrapper { padding: 60px 0 20px 0; }
-            .category-section {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                gap: 18px;
-                padding: 10px 5% 20px 5%;
-                justify-content: flex-start;
+            .explore-button-section {
+                padding: 60px 5% 30px;
             }
-            .category-item { scroll-snap-align: start; width: 85px; }
-            .video-circle { width: 75px; height: 75px; }
+            .explore-btn {
+                font-size: 1.1rem;
+                padding: 14px 32px;
+                gap: 10px;
+            }
         }
 
-        /* Products grid - FIXED ALIGNMENT for buttons */
+        /* Products grid */
         .section-padding {
             padding: 70px 5%;
         }
@@ -530,7 +521,6 @@
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 35px;
         }
-        /* PRODUCT CARD: now uses flex column layout to ensure button sticks to bottom */
         .product-card {
             background: white;
             border-radius: 28px;
@@ -550,6 +540,7 @@
             aspect-ratio: 1 / 1;
             object-fit: contain;
             background: #faf7f2;
+            transition: opacity 0.2s ease;
         }
         .product-card h3 {
             font-size: 1.25rem;
@@ -562,11 +553,12 @@
             font-size: 1.25rem;
             margin: 8px 0 16px 0;
         }
-        /* Button wrapper ensures consistent alignment at bottom */
         .product-btn-wrapper {
             margin-top: auto;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .btn-coming {
             background: #f0ebe4;
@@ -578,7 +570,6 @@
             font-weight: 600;
             font-size: 0.75rem;
             display: inline-block;
-            transition: 0.2s;
         }
         .btn-add {
             background: var(--accent);
@@ -599,6 +590,34 @@
             transform: translateY(-2px);
         }
         
+        /* Variation selector styles */
+        .variation-selector {
+            margin: 12px 0 8px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .variation-btn {
+            background: #f5f0ea;
+            border: 1px solid #e0d6cc;
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            color: var(--primary);
+        }
+        .variation-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #4b0118;
+        }
+        .variation-btn:hover:not(.active) {
+            background: #e6dbd0;
+        }
+        
         @media (max-width: 768px) {
             .product-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -609,6 +628,7 @@
             .product-card h3 { font-size: 1rem; }
             .price { font-size: 1rem; margin: 6px 0 12px 0; }
             .btn-add, .btn-coming { padding: 6px 16px; font-size: 0.7rem; }
+            .variation-btn { padding: 4px 10px; font-size: 0.65rem; }
         }
         
         /* Marquee banner */
@@ -829,30 +849,71 @@
             border-color: var(--accent);
         }
         
+        /* Professional Footer */
         footer {
             background: var(--primary);
             color: white;
             padding: 60px 5% 30px;
-            border-top: 4px solid var(--accent);
+            border-top: 3px solid var(--accent);
         }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        @media (max-width: 800px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 550px) { .footer-grid { grid-template-columns: 1fr; } }
-        .social-icons a {
-            color: var(--accent);
-            font-size: 1.3rem;
-            margin-right: 15px;
-        }
-        .disclaimer {
+        .footer-professional {
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.15);
-            padding-top: 30px;
+        }
+        .footer-brand {
+            margin-bottom: 28px;
+        }
+        .footer-logo {
+            height: 148px;
+            width: auto;
+            margin-bottom: 12px;
+            filter: brightness(0) invert(1);
+        }
+        .footer-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .footer-contact-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 30px 0 32px;
+            font-size: 0.95rem;
+        }
+        .footer-contact-row span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #f0e6da;
+        }
+        .footer-contact-row i {
+            color: var(--accent);
+            font-size: 1rem;
+        }
+        .footer-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin: 20px auto;
+            opacity: 0.5;
+        }
+        .footer-copyright {
             font-size: 0.7rem;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 0.5px;
+        }
+        .footer-copyright p {
+            margin: 5px 0;
+        }
+        @media (max-width: 768px) {
+            footer { padding: 50px 5% 25px; }
+            .footer-contact-row { gap: 20px; flex-direction: column; align-items: center; }
+            .footer-contact-row span { font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -916,38 +977,21 @@
         <h3>Wellness Member</h3>
         <p>Sign in for exclusive offers</p>
     </div>
-   
     <a href="#storysection" class="profile-link"><i class="fas fa-headset"></i> Support</a>
 </div>
 
-<script>
-const productsData = [
-    { name: "Chocolate", price: "₹300", img: "chocolate3.png", customLink: "singlechocolate.html", category: "chocolate", comingSoon: false },
-    { name: "Oral Spray", price: "₹400", img: "spray.png", customLink: "oral_spray.html", category: "spray", comingSoon: false },
-    { name: "Playing Cards", price: "₹150", img: "main_cards.jpeg", customLink: "cards.html", category: "cards", comingSoon: false },
-    { name: "Delay Spray", price: "₹300", img: "mian_delay.png", customLink: "#", category: "delay", comingSoon: true },
-    { name: "Premium Condoms", price: "₹100", img: "main_condoms.png", customLink: "#", category: "condoms", comingSoon: true },
-    { name: "Lubricant", price: "₹300", img: "mian_lube.jpeg", customLink: "#", category: "lube", comingSoon: true }
-];
-</script>
-
-<!-- CIRCLE VIDEOS SECTION -->
-<div class="category-wrapper">
-    <div class="section-title reveal" style="margin-bottom: 20px;">
-        <h2>Your next guilty pleasure awaits</h2>
+<!-- Explore Button Section -->
+<div class="explore-button-section reveal">
+    <div class="section-title" style="margin-bottom: 24px;">
+        <h2>Discover The Collection</h2>
         <p>Luxury wellness essentials crafted for confidence & performance.</p>
     </div>
-    <div class="category-section">
-        <div class="category-item reveal"><div class="video-circle"><video autoplay muted loop playsinline><source src="chocolatefront.mp4" type="video/mp4"></video></div><p>Chocolate</p></div>
-        <div class="category-item reveal"><div class="video-circle"><video autoplay muted loop playsinline><source src="cards.mp4" type="video/mp4"></video></div><p>Cards</p></div>
-        <div class="category-item reveal"><div class="video-circle"><video autoplay muted loop playsinline><source src="delay.mp4" type="video/mp4"></video></div><p>Delay Spray</p></div>
-        <div class="category-item reveal"><div class="video-circle"><video autoplay muted loop playsinline><source src="oral_spary.mp4" type="video/mp4"></video></div><p>Oral Spray</p></div>
-        <div class="category-item reveal"><div class="video-circle"><video autoplay muted loop playsinline><source src="lubricant.mp4" type="video/mp4"></video></div><p>Lubricants</p></div>
-        <div class="category-item reveal"><div class="video-circle"><video autoplay muted loop playsinline><source src="condom1.mp4" type="video/mp4"></video></div><p>Condoms</p></div>
-    </div>
+    <a href="new.html" id="exploreProductsBtn" class="explore-btn">
+        Explore Our Products <i class="fas fa-arrow-right"></i>
+    </a>
 </div>
 
-<!-- COVER PHOTO - moved upward, sits directly below circles -->
+<!-- COVER PHOTO -->
 <div class="cover-banner reveal">
     <img class="cover-image" src="front.png" alt="Luxury Wellness Cover">
 </div>
@@ -964,7 +1008,7 @@ const productsData = [
     </div>
 </div>
 
-<!-- PRODUCTS section with perfectly aligned buttons -->
+<!-- PRODUCTS section with dynamic image switching on variation select -->
 <section id="products" class="section-padding">
     <div class="section-title reveal"><h2>The Signature Collection</h2><p>Potent Wellness In Every Bite & Beyond</p></div>
     <div class="product-grid" id="productGrid"></div>
@@ -988,7 +1032,7 @@ const productsData = [
 <section class="section-padding discreet-section">
     <div class="discreet-wrapper">
         <div class="discreet-image reveal">
-            <img src="packing.webp" alt="Discreet Packaging" onerror="this.src='https://placehold.co/600x400/4b0118/white?text=Discreet+Packaging'">
+            <img src="finalpacking.png" alt="Discreet Packaging" onerror="this.src='https://placehold.co/600x400/4b0118/white?text=Discreet+Packaging'">
         </div>
         <div class="discreet-text reveal">
             <h3>100% Discreet Packaging</h3>
@@ -1024,100 +1068,233 @@ const productsData = [
     <div class="cert-single-card reveal"><div class="cert-badges-group"><div class="cert-badge-item"><i class="fas fa-certificate"></i><h4>FSSAI Certified</h4><p>Food safety & quality</p></div><div class="cert-badge-item"><i class="fas fa-award"></i><h4>ISO Certified</h4><p>Excellence in mfg</p></div></div><span style="display:inline-block; margin-top:20px; font-weight:500; color:var(--accent);">✔ Premium Wellness Certified</span></div>
 </section>
 
+<!-- PROFESSIONAL FOOTER -->
 <footer>
-    <div class="footer-grid"><div class="footer-links"><img src="mainlogo.png" alt="AdultBite" style="height: 42px;"><div class="logo-tagline" style="color:var(--accent);">Melt • Moan • More</div><p style="color:#ccc;">Empowering your intimate moments.</p><div class="social-icons"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a></div></div><div class="footer-links"><h4>Quick Links</h4><ul><li><a href="#top">Home</a></li><li><a href="#products">Shop All</a></li></ul></div><div class="footer-links"><h4>Support</h4><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Contact</a></li></ul></div><div class="footer-links"><h4>Contact</h4><p>support@adultbite.com</p></div></div>
-    <div class="disclaimer"><p><i class="fas fa-exclamation-triangle"></i> ADULTS ONLY: You must be 21+ to purchase.</p><p>&copy; 2026 AdultBite Luxury Wellness.</p></div>
+    <div class="footer-professional">
+        <div class="footer-brand">
+            <img src="mainlogo.png" alt="AdultBite" class="footer-logo" style="filter: brightness(0) invert(1);">
+            <div class="footer-tagline">Melt • Moan • More</div>
+        </div>
+        <div class="footer-contact-row">
+            <span><i class="fas fa-map-marker-alt"></i> New Delhi, India</span>
+            <span><i class="fas fa-envelope"></i> hello@adultbite.com</span>
+            <span><i class="fas fa-phone-alt"></i> +91 93065 43514</span>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-copyright">
+            <p><i class="fas fa-exclamation-triangle"></i> ADULTS ONLY: You must be 21+ to purchase.</p>
+            <p>&copy; 2026 AdultBite Luxury Wellness. All rights reserved.</p>
+        </div>
+    </div>
 </footer>
 
 <script>
-    function renderProducts() {
-        const grid = document.getElementById('productGrid');
-        if(!grid) return;
-        grid.innerHTML = productsData.map(p => {
-            if(p.comingSoon) {
-                return `
-                    <div class="product-card reveal">
-                        <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
-                        <h3>${p.name}</h3>
-                        <div class="price">${p.price}</div>
-                        <div class="product-btn-wrapper"><button class="btn-coming" disabled>Coming Soon</button></div>
-                    </div>
-                `;
-            } else {
-                return `
-                    <div class="product-card reveal">
-                        <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
-                        <h3>${p.name}</h3>
-                        <div class="price">${p.price}</div>
-                        <div class="product-btn-wrapper"><a href="${p.customLink}" class="btn-add">Add To Cart</a></div>
-                    </div>
-                `;
-            }
-        }).join('');
-        observerTrigger();
-    }
-    renderProducts();
+// Enhanced products data with different images per variation
+const productsData = [
+    { 
+        name: "Chocolate", 
+        basePrice: "₹300",
+        comboPrice: "₹550",
+        img: "choclatesingle.PNG", 
+        category: "chocolate", 
+        comingSoon: false,
+        hasVariations: true,
+        variations: [
+            { type: "Single", price: "₹300", link: "singlechocolate.html", suffix: "", image: "choclatesingle.PNG" },
+            { type: "Combo", price: "₹550", link: "combochocolate.html", suffix: " (Save ₹50)", image: "chocolate3.png" }
+        ]
+    },
+    { 
+        name: "Oral Spray", 
+        basePrice: "₹400",
+        img: "spray.png", 
+        category: "spray", 
+        comingSoon: false,
+        hasVariations: true,
+        variations: [
+            { type: "Mango", price: "₹400", link: "oral_spray_mango.html", suffix: " - Mango Bliss", image: "spray.png" },
+            { type: "Bubble Gum", price: "₹400", link: "oral_spray_bubblegum.html", suffix: " - Bubble Gum", image: "oralbubu.jpeg" }
+        ]
+    },
+    { name: "Playing Cards", price: "₹150", img: "main_cards.jpeg", customLink: "cards.html", category: "cards", comingSoon: false, hasVariations: false },
+    { name: "Delay Spray", price: "₹300", img: "mian_delay.png", customLink: "#", category: "delay", comingSoon: true, hasVariations: false },
+    { name: "Premium Condoms", price: "₹100", img: "main_condoms.png", customLink: "#", category: "condoms", comingSoon: true, hasVariations: false },
+    { name: "Lubricant", price: "₹300", img: "mian_lube.jpeg", customLink: "#", category: "lube", comingSoon: true, hasVariations: false }
+];
+
+// State to track selected variation for each product
+let selectedVariations = {};
+
+function renderProducts() {
+    const grid = document.getElementById('productGrid');
+    if(!grid) return;
     
-    const nav = document.getElementById('navbar');
-    window.addEventListener('scroll', () => { if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); });
-    
-    const dotsTrigger = document.getElementById('dotsMenuTrigger');
-    const sideDrawer = document.getElementById('sideDrawer');
-    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
-    const profileIcon = document.getElementById('profileIcon');
-    const profileDrawer = document.getElementById('profileDrawer');
-    const closeProfileBtn = document.getElementById('closeProfileBtn');
-    const searchIcon = document.getElementById('searchIcon');
-    const searchOverlay = document.getElementById('searchOverlay');
-    const closeSearchBtn = document.getElementById('closeSearchBtn');
-    const searchInput = document.getElementById('searchInput');
-    const searchBtn = document.getElementById('searchBtn');
-    const searchResultsDiv = document.getElementById('searchResults');
-    
-    function performSearch() {
-        const query = searchInput.value.toLowerCase().trim();
-        if(!query) { searchResultsDiv.classList.remove('active'); return; }
-        const filtered = productsData.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
-        if(filtered.length === 0) {
-            searchResultsDiv.innerHTML = '<div class="no-results">✨ No products found. Try "Chocolate" or "Spray"</div>';
-        } else {
-            searchResultsDiv.innerHTML = filtered.map(p => `
-                <div class="search-result-item" onclick="window.location.href='${p.customLink !== '#' ? p.customLink : '#'}'; document.getElementById('searchOverlay').classList.remove('active'); this.closest('.search-results').classList.remove('active');">
-                    <img src="${p.img}" onerror="this.src='https://placehold.co/50x50/f5f0ea/4b0118'">
-                    <div><strong>${p.name}</strong><br>${p.price}</div>
+    grid.innerHTML = productsData.map((p, idx) => {
+        if(p.comingSoon) {
+            return `
+                <div class="product-card reveal">
+                    <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
+                    <h3>${p.name}</h3>
+                    <div class="price">${p.price}</div>
+                    <div class="product-btn-wrapper"><button class="btn-coming" disabled>Coming Soon</button></div>
                 </div>
-            `).join('');
+            `;
+        } else if(p.hasVariations) {
+            // Initialize selected variation if not set
+            if(!selectedVariations[idx]) {
+                selectedVariations[idx] = p.variations[0];
+            }
+            const currentVar = selectedVariations[idx];
+            const displayPrice = currentVar.price;
+            const displayName = p.name + (currentVar.suffix || "");
+            const linkUrl = currentVar.link;
+            const currentImage = currentVar.image || p.img;
+            
+            // Create variation buttons HTML
+            const varButtons = p.variations.map((v, vIdx) => {
+                const isActive = selectedVariations[idx] === v;
+                return `<button class="variation-btn ${isActive ? 'active' : ''}" data-product-index="${idx}" data-var-index="${vIdx}">${v.type} ${v.price}</button>`;
+            }).join('');
+            
+            return `
+                <div class="product-card reveal" data-product-idx="${idx}">
+                    <img src="${currentImage}" class="product-img product-img-${idx}" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
+                    <h3>${displayName}</h3>
+                    <div class="variation-selector">${varButtons}</div>
+                    <div class="price">${displayPrice}</div>
+                    <div class="product-btn-wrapper"><a href="${linkUrl}" class="btn-add add-to-cart-link">Add To Cart</a></div>
+                </div>
+            `;
+        } else {
+            return `
+                <div class="product-card reveal">
+                    <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
+                    <h3>${p.name}</h3>
+                    <div class="price">${p.price}</div>
+                    <div class="product-btn-wrapper"><a href="${p.customLink}" class="btn-add">Add To Cart</a></div>
+                </div>
+            `;
         }
-        searchResultsDiv.classList.add('active');
-    }
+    }).join('');
     
-    if(searchIcon) searchIcon.addEventListener('click', () => { searchOverlay.classList.add('active'); searchInput.focus(); searchResultsDiv.classList.remove('active'); });
-    if(closeSearchBtn) closeSearchBtn.addEventListener('click', () => { searchOverlay.classList.remove('active'); searchResultsDiv.classList.remove('active'); });
-    if(searchBtn) searchBtn.addEventListener('click', performSearch);
-    if(searchInput) searchInput.addEventListener('keyup', (e) => { if(e.key === 'Enter') performSearch(); else if(searchInput.value === '') searchResultsDiv.classList.remove('active'); else performSearch(); });
-    
-    if(dotsTrigger) dotsTrigger.addEventListener('click', (e) => { e.stopPropagation(); sideDrawer.classList.add('active'); });
-    if(closeDrawerBtn) closeDrawerBtn.addEventListener('click', () => sideDrawer.classList.remove('active'));
-    if(profileIcon) profileIcon.addEventListener('click', (e) => { e.stopPropagation(); profileDrawer.classList.add('active'); });
-    if(closeProfileBtn) closeProfileBtn.addEventListener('click', () => profileDrawer.classList.remove('active'));
-    
-    document.querySelectorAll('.side-drawer a, .profile-drawer a').forEach(link => {
-        link.addEventListener('click', () => { sideDrawer.classList.remove('active'); profileDrawer.classList.remove('active'); });
+    // Attach event listeners for variation buttons
+    document.querySelectorAll('.variation-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const productIdx = parseInt(btn.dataset.productIndex);
+            const varIdx = parseInt(btn.dataset.varIndex);
+            const product = productsData[productIdx];
+            if(product && product.hasVariations) {
+                const newVariation = product.variations[varIdx];
+                selectedVariations[productIdx] = newVariation;
+                // Update the product card display
+                const card = btn.closest('.product-card');
+                const h3 = card.querySelector('h3');
+                const priceDiv = card.querySelector('.price');
+                const link = card.querySelector('.add-to-cart-link');
+                const productImg = card.querySelector('.product-img');
+                
+                h3.textContent = product.name + (newVariation.suffix || "");
+                priceDiv.textContent = newVariation.price;
+                if(link) link.href = newVariation.link;
+                // CHANGE IMAGE based on selected variation
+                if(productImg && newVariation.image) {
+                    productImg.src = newVariation.image;
+                }
+                
+                // Update active state on buttons
+                card.querySelectorAll('.variation-btn').forEach((b, i) => {
+                    if(i === varIdx) b.classList.add('active');
+                    else b.classList.remove('active');
+                });
+            }
+        });
     });
-    document.addEventListener('click', (e) => {
-        if(sideDrawer?.classList.contains('active') && !sideDrawer.contains(e.target) && !dotsTrigger?.contains(e.target)) sideDrawer.classList.remove('active');
-        if(profileDrawer?.classList.contains('active') && !profileDrawer.contains(e.target) && !profileIcon?.contains(e.target)) profileDrawer.classList.remove('active');
-        if(searchOverlay?.classList.contains('active') && !searchOverlay.contains(e.target) && e.target !== searchIcon && !searchIcon?.contains(e.target)) {
-            searchOverlay.classList.remove('active');
-            searchResultsDiv.classList.remove('active');
-        }
-    });
     
-    function observerTrigger() {
-        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); } }); }, { threshold: 0.12 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    }
     observerTrigger();
+}
+
+renderProducts();
+
+// Explore Products button functionality
+const exploreBtn = document.getElementById('exploreProductsBtn');
+if(exploreBtn) {
+    exploreBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = "new-products-page.html";
+    });
+}
+
+// Navigation scroll effect
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => { if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); });
+
+// Drawer and search functionality
+const dotsTrigger = document.getElementById('dotsMenuTrigger');
+const sideDrawer = document.getElementById('sideDrawer');
+const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+const profileIcon = document.getElementById('profileIcon');
+const profileDrawer = document.getElementById('profileDrawer');
+const closeProfileBtn = document.getElementById('closeProfileBtn');
+const searchIcon = document.getElementById('searchIcon');
+const searchOverlay = document.getElementById('searchOverlay');
+const closeSearchBtn = document.getElementById('closeSearchBtn');
+const searchInput = document.getElementById('searchInput');
+const searchBtn = document.getElementById('searchBtn');
+const searchResultsDiv = document.getElementById('searchResults');
+
+function performSearch() {
+    const query = searchInput.value.toLowerCase().trim();
+    if(!query) { searchResultsDiv.classList.remove('active'); return; }
+    const filtered = productsData.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
+    if(filtered.length === 0) {
+        searchResultsDiv.innerHTML = '<div class="no-results">✨ No products found. Try "Chocolate" or "Spray"</div>';
+    } else {
+        searchResultsDiv.innerHTML = filtered.map(p => {
+            let link = p.customLink || "#";
+            let imgSrc = p.img;
+            if(p.hasVariations && p.variations && p.variations[0]) {
+                link = p.variations[0].link;
+                imgSrc = p.variations[0].image || p.img;
+            }
+            return `
+                <div class="search-result-item" onclick="window.location.href='${link !== '#' ? link : '#'}'; document.getElementById('searchOverlay').classList.remove('active'); this.closest('.search-results').classList.remove('active');">
+                    <img src="${imgSrc}" onerror="this.src='https://placehold.co/50x50/f5f0ea/4b0118'">
+                    <div><strong>${p.name}</strong><br>${p.price || p.basePrice}</div>
+                </div>
+            `;
+        }).join('');
+    }
+    searchResultsDiv.classList.add('active');
+}
+
+if(searchIcon) searchIcon.addEventListener('click', () => { searchOverlay.classList.add('active'); searchInput.focus(); searchResultsDiv.classList.remove('active'); });
+if(closeSearchBtn) closeSearchBtn.addEventListener('click', () => { searchOverlay.classList.remove('active'); searchResultsDiv.classList.remove('active'); });
+if(searchBtn) searchBtn.addEventListener('click', performSearch);
+if(searchInput) searchInput.addEventListener('keyup', (e) => { if(e.key === 'Enter') performSearch(); else if(searchInput.value === '') searchResultsDiv.classList.remove('active'); else performSearch(); });
+
+if(dotsTrigger) dotsTrigger.addEventListener('click', (e) => { e.stopPropagation(); sideDrawer.classList.add('active'); });
+if(closeDrawerBtn) closeDrawerBtn.addEventListener('click', () => sideDrawer.classList.remove('active'));
+if(profileIcon) profileIcon.addEventListener('click', (e) => { e.stopPropagation(); profileDrawer.classList.add('active'); });
+if(closeProfileBtn) closeProfileBtn.addEventListener('click', () => profileDrawer.classList.remove('active'));
+
+document.querySelectorAll('.side-drawer a, .profile-drawer a').forEach(link => {
+    link.addEventListener('click', () => { sideDrawer.classList.remove('active'); profileDrawer.classList.remove('active'); });
+});
+document.addEventListener('click', (e) => {
+    if(sideDrawer?.classList.contains('active') && !sideDrawer.contains(e.target) && !dotsTrigger?.contains(e.target)) sideDrawer.classList.remove('active');
+    if(profileDrawer?.classList.contains('active') && !profileDrawer.contains(e.target) && !profileIcon?.contains(e.target)) profileDrawer.classList.remove('active');
+    if(searchOverlay?.classList.contains('active') && !searchOverlay.contains(e.target) && e.target !== searchIcon && !searchIcon?.contains(e.target)) {
+        searchOverlay.classList.remove('active');
+        searchResultsDiv.classList.remove('active');
+    }
+});
+
+function observerTrigger() {
+    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); } }); }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}
+observerTrigger();
 </script>
 </body>
 </html>
