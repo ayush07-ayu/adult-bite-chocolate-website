@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="AdultBite – Premium Wellness Products. Shop our signature collection of luxury intimacy wellness essentials.">
-    <title>AdultBite | All Products</title>
+    <meta name="description" content="AdultBite – Premium Wellness Products. Discover our signature collection of luxury intimacy wellness essentials.">
+    <title>AdultBite | Our Products</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -154,17 +154,11 @@
             margin-bottom: 8px;
         }
 
-        .product-price {
-            color: #D4AF37;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 8px 0;
-        }
-
         .product-desc {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: #888;
             margin-bottom: 16px;
+            line-height: 1.4;
         }
 
         /* Variation Selector inside product card */
@@ -197,7 +191,7 @@
             background: #e6dbd0;
         }
 
-        .add-to-cart {
+        .view-details {
             display: inline-block;
             background: #D4AF37;
             color: #4B0118;
@@ -212,7 +206,7 @@
             cursor: pointer;
         }
 
-        .add-to-cart:hover {
+        .view-details:hover {
             background: #4B0118;
             color: #D4AF37;
             transform: translateY(-2px);
@@ -276,16 +270,12 @@
                 font-size: 0.9rem;
             }
             
-            .product-price {
-                font-size: 1rem;
-            }
-            
             .var-btn {
                 padding: 3px 8px;
                 font-size: 0.6rem;
             }
             
-            .add-to-cart, .coming-soon {
+            .view-details, .coming-soon {
                 padding: 6px 16px;
                 font-size: 0.65rem;
             }
@@ -301,6 +291,10 @@
                 flex-wrap: nowrap;
                 padding-bottom: 5px;
             }
+
+            .product-desc {
+                font-size: 0.65rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -311,14 +305,6 @@
             .product-image {
                 padding: 12px;
             }
-        }
-
-        /* Loading animation */
-        .loading {
-            text-align: center;
-            padding: 50px;
-            font-size: 1.2rem;
-            color: #D4AF37;
         }
     </style>
 </head>
@@ -355,79 +341,73 @@
 </footer>
 
 <script>
-    // Products Data with variations
+    // Products Data with variations - NO PRICES DISPLAYED
     const productsData = [
         { 
             id: 1,
             name: "Intimacy Chocolate", 
-            basePrice: "₹300",
             img: "chocolate3.png", 
             category: "chocolate", 
             comingSoon: false,
             hasVariations: true,
             description: "Premium cacao blend for mood enhancement",
             variations: [
-                { type: "Single", price: "₹300", link: "singlechocolate.html", suffix: "", image: "chocolate3.png" },
-                { type: "Combo", price: "₹550", link: "combochocolate.html", suffix: " (Save ₹50)", image: "chocolate_combo.png" }
+                { type: "Single", link: "singlechocolate.html", suffix: "", image: "chocolate3.png" },
+                { type: "Combo", link: "combochocolate.html", suffix: " (Save ₹50)", image: "chocolate_combo.png" }
             ]
         },
         { 
             id: 2,
             name: "Oral Spray", 
-            basePrice: "₹400",
             img: "spray.png", 
             category: "spray", 
             comingSoon: false,
             hasVariations: true,
             description: "Freshness & confidence in every spray",
             variations: [
-                { type: "Mango", price: "₹400", link: "oral_spray_mango.html", suffix: " - Mango Bliss", image: "spray_mango.png" },
-                { type: "Bubble Gum", price: "₹400", link: "oral_spray_bubblegum.html", suffix: " - Bubble Gum", image: "spray_bubblegum.png" }
+                { type: "Mango", link: "oral_spray_mango.html", suffix: " - Mango Bliss", image: "spray_mango.png" },
+                { type: "Bubble Gum", link: "oral_spray_bubblegum.html", suffix: " - Bubble Gum", image: "spray_bubblegum.png" }
             ]
         },
         { 
             id: 3,
             name: "Playing Cards", 
-            price: "₹150", 
             img: "main_cards.jpeg", 
             link: "cards.html", 
             category: "cards", 
             comingSoon: false, 
             hasVariations: false,
-            description: "Adult party game cards"
+            description: "Adult party game cards for couple fun"
         },
         { 
             id: 4,
             name: "Delay Spray", 
-            price: "₹300", 
             img: "mian_delay.png", 
             link: "#", 
             category: "delay", 
             comingSoon: true, 
             hasVariations: false,
-            description: "Long-lasting performance"
+            description: "Long-lasting performance spray"
         },
         { 
             id: 5,
             name: "Premium Condoms", 
-            price: "₹100", 
             img: "main_condoms.png", 
             link: "#", 
             category: "condoms", 
             comingSoon: true, 
             hasVariations: false,
-            description: "Ultra-thin & comfortable"
+            description: "Ultra-thin & comfortable protection"
         },
         { 
             id: 6,
             name: "Lubricant", 
-            price: "₹300", 
             img: "mian_lube.jpeg", 
             link: "#", 
             category: "lube", 
             comingSoon: true, 
             hasVariations: false,
-            description: "Smooth & natural glide"
+            description: "Smooth & natural intimate glide"
         }
     ];
 
@@ -437,7 +417,7 @@
     // Current filter
     let currentFilter = "all";
 
-    // Helper to render products based on filter
+    // Helper to render products based on filter - NO PRICES
     function renderProducts() {
         const grid = document.getElementById('productGrid');
         if (!grid) return;
@@ -448,8 +428,8 @@
         }
 
         const count = filteredProducts.length;
-        const countText = count === 0 ? "No products found" : `Showing ${count} product${count !== 1 ? 's' : ''}`;
-        document.getElementById('resultsCount').innerText = countText;
+        const countText = count === 0 ? "No products found" : `${count} product${count !== 1 ? 's' : ''}`;
+        document.getElementById('resultsCount').innerText = `Showing ${countText}`;
 
         if (filteredProducts.length === 0) {
             grid.innerHTML = `
@@ -462,17 +442,13 @@
             return;
         }
 
-        grid.innerHTML = filteredProducts.map((p, idx) => {
-            // Get original index for state tracking
-            const originalIndex = productsData.findIndex(prod => prod.id === p.id);
-            
+        grid.innerHTML = filteredProducts.map((p) => {
             if (p.comingSoon) {
                 return `
                     <div class="product-card" data-product-id="${p.id}">
                         <img src="${p.img}" class="product-image" alt="${p.name}" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
                         <div class="product-info">
                             <h3 class="product-name">${p.name}</h3>
-                            <div class="product-price">${p.price}</div>
                             <div class="product-desc">${p.description}</div>
                             <span class="coming-soon">Coming Soon</span>
                         </div>
@@ -485,14 +461,13 @@
                     selectedVariations[p.id] = p.variations[0];
                 }
                 const currentVar = selectedVariations[p.id];
-                const displayPrice = currentVar.price;
                 const displayName = p.name + (currentVar.suffix || "");
                 const linkUrl = currentVar.link;
                 const currentImage = currentVar.image || p.img;
 
                 const varButtons = p.variations.map((v, vIdx) => {
                     const isActive = selectedVariations[p.id] === v;
-                    return `<button class="var-btn ${isActive ? 'active' : ''}" data-product-id="${p.id}" data-var-index="${vIdx}">${v.type} ${v.price}</button>`;
+                    return `<button class="var-btn ${isActive ? 'active' : ''}" data-product-id="${p.id}" data-var-index="${vIdx}">${v.type}</button>`;
                 }).join('');
 
                 return `
@@ -501,9 +476,8 @@
                         <div class="product-info">
                             <h3 class="product-name">${displayName}</h3>
                             <div class="variation-selector">${varButtons}</div>
-                            <div class="product-price">${displayPrice}</div>
                             <div class="product-desc">${p.description}</div>
-                            <a href="${linkUrl}" class="add-to-cart">Add to Cart</a>
+                            <a href="${linkUrl}" class="view-details">View Details</a>
                         </div>
                     </div>
                 `;
@@ -514,9 +488,8 @@
                         <img src="${p.img}" class="product-image" alt="${p.name}" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
                         <div class="product-info">
                             <h3 class="product-name">${p.name}</h3>
-                            <div class="product-price">${p.price}</div>
                             <div class="product-desc">${p.description}</div>
-                            <a href="${p.link}" class="add-to-cart">Add to Cart</a>
+                            <a href="${p.link}" class="view-details">View Details</a>
                         </div>
                     </div>
                 `;
@@ -539,12 +512,10 @@
                     const card = btn.closest('.product-card');
                     const img = card.querySelector('.product-image');
                     const nameEl = card.querySelector('.product-name');
-                    const priceEl = card.querySelector('.product-price');
-                    const link = card.querySelector('.add-to-cart');
+                    const link = card.querySelector('.view-details');
                     
                     if (img && newVariation.image) img.src = newVariation.image;
                     if (nameEl) nameEl.textContent = product.name + (newVariation.suffix || "");
-                    if (priceEl) priceEl.textContent = newVariation.price;
                     if (link) link.href = newVariation.link;
                     
                     // Update active state on variation buttons
@@ -585,12 +556,6 @@
             window.location.href = "/";
         });
     }
-
-    // Mobile touch optimization
-    let touchStartX = 0;
-    document.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
 </script>
 </body>
 </html>
