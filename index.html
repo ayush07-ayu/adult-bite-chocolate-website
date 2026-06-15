@@ -92,15 +92,14 @@
             line-height: 1.5;
         }
 
+        /* REMOVED ALL REVEAL ANIMATIONS THAT TRIGGER ON SCROLL */
+        /* Previously .reveal class had opacity/transform transitions - now removed for performance */
         .reveal {
-            opacity: 0;
-            transform: translateY(35px);
-            transition: opacity 0.85s ease-out, transform 0.85s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        }
-        .reveal.active {
+            /* No opacity or transform transitions - elements are always visible */
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
         }
+        /* No active class needed anymore */
 
         /* Navigation - Clean layout */
         nav {
@@ -981,7 +980,7 @@
 </div>
 
 <!-- Explore Button Section -->
-<div class="explore-button-section reveal">
+<div class="explore-button-section">
     <div class="section-title" style="margin-bottom: 24px;">
         <h2>Discover The Collection</h2>
         <p>Luxury wellness essentials crafted for confidence & performance.</p>
@@ -992,7 +991,7 @@
 </div>
 
 <!-- COVER PHOTO -->
-<div class="cover-banner reveal">
+<div class="cover-banner">
     <img class="cover-image" src="front.png" alt="Luxury Wellness Cover">
 </div>
 
@@ -1010,14 +1009,14 @@
 
 <!-- PRODUCTS section with dynamic image switching on variation select -->
 <section id="products" class="section-padding">
-    <div class="section-title reveal"><h2>The Signature Collection</h2><p>Potent Wellness In Every Bite & Beyond</p></div>
+    <div class="section-title"><h2>The Signature Collection</h2><p>Potent Wellness In Every Bite & Beyond</p></div>
     <div class="product-grid" id="productGrid"></div>
 </section>
 
 <!-- TRUST Section -->
 <section class="trust-hero">
     <div class="trust-overlay"></div>
-    <div class="trust-content reveal">
+    <div class="trust-content">
         <h2 style="font-size:2.8rem;">Trusted by 1+ Lakh Indians</h2>
         <p style="font-size:1.1rem;">Thousands of couples choose AdultBite for confidence, intimacy and wellness.</p>
         <div class="trust-stats">
@@ -1031,10 +1030,10 @@
 <!-- Discreet Packaging -->
 <section class="section-padding discreet-section">
     <div class="discreet-wrapper">
-        <div class="discreet-image reveal">
+        <div class="discreet-image">
             <img src="finalpacking.png" alt="Discreet Packaging" onerror="this.src='https://placehold.co/600x400/4b0118/white?text=Discreet+Packaging'">
         </div>
-        <div class="discreet-text reveal">
+        <div class="discreet-text">
             <h3>100% Discreet Packaging</h3>
             <p>Your privacy matters. Every order arrives in secure premium packaging with complete confidentiality.</p>
             <div class="icon-row">
@@ -1050,22 +1049,22 @@
 <!-- Story section -->
 <section class="section-padding">
     <div class="benefits-content">
-        <div class="reveal"><h2 style="font-size: 2.5rem; color: var(--primary);">Natural Science. <br>Luxury Indulgence.</h2><p style="margin:20px 0;">AdultBite combines ancient herbal wisdom with premium cacao for modern adult wellness.</p><video autoplay muted loop playsinline class="nature-video-small"><source src="nature.mp4" type="video/mp4"></video></div>
+        <div><h2 style="font-size: 2.5rem; color: var(--primary);">Natural Science. <br>Luxury Indulgence.</h2><p style="margin:20px 0;">AdultBite combines ancient herbal wisdom with premium cacao for modern adult wellness.</p><video autoplay muted loop playsinline class="nature-video-small"><source src="nature.mp4" type="video/mp4"></video></div>
     </div>
-    <div id="storysection" class="mission-box reveal"><h3>Our Story</h3><p>Adult Bite is on a mission to make intimacy wellness open, approachable, and confidence boosting for modern adults.</p><p>We create bold products that help people feel closer, happier, and more connected.</p><span class="age-restriction">21+ only</span></div>
+    <div id="storysection" class="mission-box"><h3>Our Story</h3><p>Adult Bite is on a mission to make intimacy wellness open, approachable, and confidence boosting for modern adults.</p><p>We create bold products that help people feel closer, happier, and more connected.</p><span class="age-restriction">21+ only</span></div>
 </section>
 
 <!-- Contact Founder -->
 <section id="contact-founder" class="contact-founder">
-    <div class="reveal"><img src="team.jpeg" alt="founder" class="circular-img"><h2 style="font-size:2rem; color:var(--primary);">Talk With Our Wellness Team</h2><p>Need guidance or product support? We're here to help you privately.</p>
+    <div><img src="team.jpeg" alt="founder" class="circular-img"><h2 style="font-size:2rem; color:var(--primary);">Talk With Our Wellness Team</h2><p>Need guidance or product support? We're here to help you privately.</p>
     <div class="contact-buttons"><a href="https://wa.me/+91 9996631422?text=Hi%20AdultBite,%20I%20visited%20your%20website" class="contact-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="mailto:support@adultbite.com" class="contact-btn"><i class="far fa-envelope"></i> Email</a><a href="https://instagram.com/adult.bite" class="contact-btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></div>
     </div>
 </section>
 
 <!-- CERTIFICATIONS -->
 <section id="certs" class="certs-wrapper">
-    <div class="section-title reveal"><h2>Trusted Quality</h2><p>Our standards are as premium as our products</p></div>
-    <div class="cert-single-card reveal"><div class="cert-badges-group"><div class="cert-badge-item"><i class="fas fa-certificate"></i><h4>FSSAI Certified</h4><p>Food safety & quality</p></div><div class="cert-badge-item"><i class="fas fa-award"></i><h4>ISO Certified</h4><p>Excellence in mfg</p></div></div><span style="display:inline-block; margin-top:20px; font-weight:500; color:var(--accent);">✔ Premium Wellness Certified</span></div>
+    <div class="section-title"><h2>Trusted Quality</h2><p>Our standards are as premium as our products</p></div>
+    <div class="cert-single-card"><div class="cert-badges-group"><div class="cert-badge-item"><i class="fas fa-certificate"></i><h4>FSSAI Certified</h4><p>Food safety & quality</p></div><div class="cert-badge-item"><i class="fas fa-award"></i><h4>ISO Certified</h4><p>Excellence in mfg</p></div></div><span style="display:inline-block; margin-top:20px; font-weight:500; color:var(--accent);">✔ Premium Wellness Certified</span></div>
 </section>
 
 <!-- PROFESSIONAL FOOTER -->
@@ -1132,7 +1131,7 @@ function renderProducts() {
     grid.innerHTML = productsData.map((p, idx) => {
         if(p.comingSoon) {
             return `
-                <div class="product-card reveal">
+                <div class="product-card">
                     <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
                     <h3>${p.name}</h3>
                     <div class="price">${p.price}</div>
@@ -1157,7 +1156,7 @@ function renderProducts() {
             }).join('');
             
             return `
-                <div class="product-card reveal" data-product-idx="${idx}">
+                <div class="product-card" data-product-idx="${idx}">
                     <img src="${currentImage}" class="product-img product-img-${idx}" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
                     <h3>${displayName}</h3>
                     <div class="variation-selector">${varButtons}</div>
@@ -1167,7 +1166,7 @@ function renderProducts() {
             `;
         } else {
             return `
-                <div class="product-card reveal">
+                <div class="product-card">
                     <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
                     <h3>${p.name}</h3>
                     <div class="price">${p.price}</div>
@@ -1210,8 +1209,6 @@ function renderProducts() {
             }
         });
     });
-    
-    observerTrigger();
 }
 
 renderProducts();
@@ -1290,11 +1287,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-function observerTrigger() {
-    const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); observer.unobserve(entry.target); } }); }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-}
-observerTrigger();
+// No scroll-based observer or reveal animations - all content is visible immediately
 </script>
 </body>
 </html>
