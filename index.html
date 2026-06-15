@@ -431,7 +431,7 @@
             }
         }
         
-        /* COVER PHOTO */
+        /* COVER PHOTO - FULLY RESPONSIVE */
         .cover-banner {
             width: 100%;
             margin: 0;
@@ -439,17 +439,40 @@
             overflow: hidden;
             line-height: 0;
             margin-top: 0px;
+            display: block;
         }
         .cover-image {
             width: 100%;
             height: auto;
-            min-height: 420px;
+            aspect-ratio: 16 / 9;
             object-fit: cover;
+            object-position: center center;
             display: block;
+            transition: all 0.2s ease;
+        }
+        @media (max-width: 1024px) {
+            .cover-image {
+                aspect-ratio: 4 / 3;
+                min-height: 320px;
+            }
         }
         @media (max-width: 768px) {
-            .cover-image { min-height: 280px; }
-            .cover-banner { margin-top: 0px; }
+            .cover-image {
+                aspect-ratio: 3 / 4;
+                min-height: 280px;
+                object-fit: cover;
+                object-position: top center;
+            }
+            .cover-banner { 
+                margin-top: 0px; 
+            }
+        }
+        @media (max-width: 480px) {
+            .cover-image {
+                aspect-ratio: 1 / 1.2;
+                min-height: 240px;
+                object-fit: cover;
+            }
         }
 
         /* Explore Button Section */
@@ -990,9 +1013,9 @@
     </a>
 </div>
 
-<!-- COVER PHOTO -->
+<!-- COVER PHOTO - Fully Responsive -->
 <div class="cover-banner">
-    <img class="cover-image" src="IMG_8874.PNG" alt="Luxury Wellness Cover">
+    <img class="cover-image" src="IMG_8874.jpeg" alt="Luxury Wellness Cover">
 </div>
 
 <!-- LIVE SALE BANNER -->
@@ -1139,7 +1162,6 @@ function renderProducts() {
                 </div>
             `;
         } else if(p.hasVariations) {
-            // Initialize selected variation if not set
             if(!selectedVariations[idx]) {
                 selectedVariations[idx] = p.variations[0];
             }
@@ -1149,7 +1171,6 @@ function renderProducts() {
             const linkUrl = currentVar.link;
             const currentImage = currentVar.image || p.img;
             
-            // Create variation buttons HTML
             const varButtons = p.variations.map((v, vIdx) => {
                 const isActive = selectedVariations[idx] === v;
                 return `<button class="variation-btn ${isActive ? 'active' : ''}" data-product-index="${idx}" data-var-index="${vIdx}">${v.type} ${v.price}</button>`;
@@ -1176,7 +1197,6 @@ function renderProducts() {
         }
     }).join('');
     
-    // Attach event listeners for variation buttons
     document.querySelectorAll('.variation-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -1186,7 +1206,6 @@ function renderProducts() {
             if(product && product.hasVariations) {
                 const newVariation = product.variations[varIdx];
                 selectedVariations[productIdx] = newVariation;
-                // Update the product card display
                 const card = btn.closest('.product-card');
                 const h3 = card.querySelector('h3');
                 const priceDiv = card.querySelector('.price');
@@ -1196,12 +1215,10 @@ function renderProducts() {
                 h3.textContent = product.name + (newVariation.suffix || "");
                 priceDiv.textContent = newVariation.price;
                 if(link) link.href = newVariation.link;
-                // CHANGE IMAGE based on selected variation
                 if(productImg && newVariation.image) {
                     productImg.src = newVariation.image;
                 }
                 
-                // Update active state on buttons
                 card.querySelectorAll('.variation-btn').forEach((b, i) => {
                     if(i === varIdx) b.classList.add('active');
                     else b.classList.remove('active');
@@ -1213,7 +1230,6 @@ function renderProducts() {
 
 renderProducts();
 
-// Explore Products button functionality
 const exploreBtn = document.getElementById('exploreProductsBtn');
 if(exploreBtn) {
     exploreBtn.addEventListener('click', (e) => {
@@ -1222,11 +1238,9 @@ if(exploreBtn) {
     });
 }
 
-// Navigation scroll effect
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => { if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); });
 
-// Drawer and search functionality
 const dotsTrigger = document.getElementById('dotsMenuTrigger');
 const sideDrawer = document.getElementById('sideDrawer');
 const closeDrawerBtn = document.getElementById('closeDrawerBtn');
@@ -1286,8 +1300,6 @@ document.addEventListener('click', (e) => {
         searchResultsDiv.classList.remove('active');
     }
 });
-
-// No scroll-based observer or reveal animations - all content is visible immediately
 </script>
 </body>
 </html>
