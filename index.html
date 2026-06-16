@@ -21,6 +21,8 @@
             --shadow-sm: 0 8px 20px rgba(0,0,0,0.03);
             --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.08);
             --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            --nature-green: #1a3a1a;
+            --nature-green-light: #2d5a2d;
         }
 
         * {
@@ -42,28 +44,28 @@
             z-index: 5;
         }
 
-      .logo-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
 
-.logo-img{
-    height: 130px;
-    width: auto;
-    max-width: 100%;
-    display: block;
-    object-fit: contain;
-    transition: var(--transition);
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-}
+        .logo-img {
+            height: 130px;
+            width: auto;
+            max-width: 100%;
+            display: block;
+            object-fit: contain;
+            transition: var(--transition);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
 
-@media screen and (max-width: 768px){
-    .logo-img{
-        height: 130px;
-    }
-}
+        @media screen and (max-width: 768px) {
+            .logo-img {
+                height: 130px;
+            }
+        }
         
         .logo-img:hover {
             transform: scale(1.02);
@@ -92,14 +94,10 @@
             line-height: 1.5;
         }
 
-        /* REMOVED ALL REVEAL ANIMATIONS THAT TRIGGER ON SCROLL */
-        /* Previously .reveal class had opacity/transform transitions - now removed for performance */
         .reveal {
-            /* No opacity or transform transitions - elements are always visible */
             opacity: 1;
             transform: none;
         }
-        /* No active class needed anymore */
 
         /* Navigation - Clean layout */
         nav {
@@ -123,7 +121,6 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
         }
 
-        /* Left side group (search icon + profile icon) */
         .nav-left-group {
             display: flex;
             align-items: center;
@@ -131,7 +128,6 @@
             z-index: 10;
         }
 
-        /* Right side group (dots menu only) */
         .nav-right-group {
             display: flex;
             align-items: center;
@@ -139,7 +135,6 @@
             z-index: 10;
         }
 
-        /* Icon buttons styling */
         .nav-icon-btn {
             display: flex;
             align-items: center;
@@ -160,7 +155,7 @@
             transform: scale(1.05);
         }
 
-        /* Search bar overlay */
+        /* ----- SEARCH OVERLAY (Redesigned) ----- */
         .search-overlay {
             position: fixed;
             top: 0;
@@ -168,13 +163,15 @@
             width: 100%;
             height: 100%;
             background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(8px);
             z-index: 2300;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             visibility: hidden;
             opacity: 0;
-            transition: 0.3s ease;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding-top: 10vh;
         }
         .search-overlay.active {
             visibility: visible;
@@ -182,76 +179,93 @@
         }
         .search-container {
             width: 90%;
-            max-width: 600px;
+            max-width: 680px;
             background: white;
-            border-radius: 60px;
+            border-radius: 80px;
             display: flex;
             align-items: center;
-            padding: 8px 20px;
-            box-shadow: 0 0 30px rgba(212,175,55,0.3);
-            transform: scale(0.9);
-            transition: 0.3s;
+            padding: 6px 6px 6px 28px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,175,55,0.3);
+            transform: translateY(-20px);
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
         .search-overlay.active .search-container {
-            transform: scale(1);
+            transform: translateY(0);
         }
         .search-container input {
             flex: 1;
             border: none;
             outline: none;
             padding: 18px 10px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             background: transparent;
             color: #4b0118;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+        .search-container input::placeholder {
+            color: #a09080;
+            font-weight: 300;
         }
         .search-container button {
             background: var(--accent);
             border: none;
-            padding: 12px 28px;
-            border-radius: 50px;
+            padding: 14px 32px;
+            border-radius: 60px;
             font-weight: 600;
             cursor: pointer;
             color: #4b0118;
             transition: 0.2s;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(212,175,55,0.3);
         }
         .search-container button:hover {
             background: #4b0118;
             color: var(--accent);
+            transform: scale(1.02);
         }
         .close-search {
             position: absolute;
             top: 30px;
             right: 40px;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: white;
             cursor: pointer;
-            background: rgba(255,255,255,0.2);
-            width: 50px;
-            height: 50px;
+            background: rgba(255,255,255,0.1);
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: 0.25s;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         .close-search:hover {
             background: var(--accent);
             color: #4b0118;
+            transform: rotate(90deg);
         }
         .search-results {
             position: fixed;
-            top: 120px;
+            top: 180px;
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
-            max-width: 800px;
+            max-width: 680px;
             background: white;
-            border-radius: 28px;
-            padding: 20px;
-            max-height: 60vh;
+            border-radius: 32px;
+            padding: 20px 10px;
+            max-height: 55vh;
             overflow-y: auto;
             z-index: 2301;
             display: none;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            background: rgba(255,255,255,0.98);
         }
         .search-results.active {
             display: block;
@@ -259,34 +273,83 @@
         .search-result-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            padding: 12px;
-            border-bottom: 1px solid #eee;
+            gap: 18px;
+            padding: 14px 20px;
+            border-radius: 20px;
             cursor: pointer;
             transition: 0.2s;
+            border-bottom: 1px solid #f0ebe4;
+        }
+        .search-result-item:last-child {
+            border-bottom: none;
         }
         .search-result-item:hover {
             background: #f9f3e8;
-            padding-left: 20px;
+            transform: translateX(6px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
         }
         .search-result-item img {
-            width: 50px;
-            height: 50px;
+            width: 54px;
+            height: 54px;
             object-fit: cover;
-            border-radius: 12px;
+            border-radius: 16px;
+            background: #f5f0ea;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .search-result-item div strong {
+            display: block;
+            font-size: 1.05rem;
+            color: #1a1a1a;
+        }
+        .search-result-item div span {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
         }
         .no-results {
             text-align: center;
-            padding: 30px;
-            color: #777;
+            padding: 40px 20px;
+            color: #5a5a5a;
+            font-size: 1.1rem;
+        }
+        .no-results i {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+        @media (max-width: 640px) {
+            .search-container {
+                padding: 4px 4px 4px 18px;
+                border-radius: 60px;
+            }
+            .search-container input {
+                font-size: 1rem;
+                padding: 14px 8px;
+            }
+            .search-container button {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            .search-results {
+                top: 140px;
+                padding: 14px 6px;
+            }
+            .search-result-item {
+                padding: 12px 14px;
+            }
+            .close-search {
+                top: 16px;
+                right: 20px;
+                width: 44px;
+                height: 44px;
+                font-size: 1.6rem;
+            }
         }
 
-        /* Hide desktop nav links - completely removed from right side */
         .nav-links {
             display: none !important;
         }
 
-        /* Side Drawer Menu (for dots menu on right) */
+        /* Side Drawer */
         .side-drawer {
             position: fixed;
             top: 0;
@@ -349,7 +412,6 @@
             color: #4b0118;
         }
 
-        /* Profile Drawer (left side) */
         .profile-drawer {
             position: fixed;
             top: 0;
@@ -431,7 +493,6 @@
             }
         }
         
-        /* COVER PHOTO - FULLY RESPONSIVE */
         .cover-banner {
             width: 100%;
             margin: 0;
@@ -475,7 +536,6 @@
             }
         }
 
-        /* Explore Button Section */
         .explore-button-section {
             padding: 80px 5% 40px;
             background: var(--bg-light);
@@ -525,7 +585,6 @@
             }
         }
 
-        /* Products grid */
         .section-padding {
             padding: 70px 5%;
         }
@@ -554,6 +613,11 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.12);
+            border-color: rgba(212,175,55,0.3);
         }
         .product-img {
             width: 100%;
@@ -612,7 +676,6 @@
             transform: translateY(-2px);
         }
         
-        /* Variation selector styles */
         .variation-selector {
             margin: 12px 0 8px;
             display: flex;
@@ -653,7 +716,6 @@
             .variation-btn { padding: 4px 10px; font-size: 0.65rem; }
         }
         
-        /* Marquee banner */
         .marquee-container{
             width:100%;
             overflow:hidden;
@@ -681,7 +743,6 @@
             to{ transform:translateX(-50%); }
         }
 
-        /* Trust section */
         .trust-hero {
             position: relative;
             background: url('trusted_1.webp') center/cover fixed;
@@ -715,7 +776,6 @@
             color: var(--accent);
         }
         
-        /* Discreet packaging */
         .discreet-section {
             background: var(--bg-secondary);
         }
@@ -871,76 +931,263 @@
             border-color: var(--accent);
         }
         
-        /* Professional Footer */
+        /* ===== NATURE SECTION - PLANT GREEN BACKGROUND ===== */
+        .nature-section {
+            background: linear-gradient(135deg, var(--nature-green) 0%, var(--nature-green-light) 50%, var(--nature-green) 100%);
+            padding: 80px 5%;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .nature-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 50 Q40 30 60 50 Q80 70 100 50" stroke="rgba(212,175,55,0.05)" fill="none" stroke-width="2"/><path d="M10 60 Q30 40 50 60 Q70 80 90 60" stroke="rgba(212,175,55,0.03)" fill="none" stroke-width="2"/></svg>') repeat;
+            opacity: 0.2;
+        }
+        .nature-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        .nature-image {
+            flex: 1;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 2px solid rgba(212,175,55,0.3);
+        }
+        .nature-image img {
+            width: 100%;
+            border-radius: 28px;
+            display: block;
+            object-fit: cover;
+            max-height: 350px;
+        }
+        .nature-text {
+            flex: 1;
+            text-align: left;
+        }
+        .nature-text h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+        }
+        .nature-text p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 15px;
+        }
+        .nature-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px 30px;
+            margin-top: 30px;
+        }
+        .nature-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.08);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(212,175,55,0.15);
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+        .nature-feature-item:hover {
+            background: rgba(212,175,55,0.15);
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+        .nature-feature-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            min-width: 40px;
+        }
+        .nature-feature-item h4 {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: white;
+        }
+        .nature-feature-item p {
+            font-size: 0.75rem;
+            margin: 0;
+            color: rgba(255,255,255,0.7);
+        }
+        @media (max-width: 768px) {
+            .nature-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nature-text { text-align: center; }
+            .nature-features {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                justify-items: center;
+            }
+            .nature-feature-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+                padding: 14px 10px;
+                width: 100%;
+            }
+            .nature-feature-item i {
+                min-width: auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .nature-features {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .nature-feature-item {
+                padding: 10px 8px;
+            }
+            .nature-feature-item i {
+                font-size: 1.5rem;
+            }
+            .nature-feature-item h4 {
+                font-size: 0.7rem;
+            }
+            .nature-feature-item p {
+                font-size: 0.6rem;
+            }
+            .nature-text h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ===== ENHANCED FOOTER ===== */
         footer {
             background: var(--primary);
             color: white;
             padding: 60px 5% 30px;
             border-top: 3px solid var(--accent);
         }
-        .footer-professional {
+        .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
-        }
-        .footer-brand {
-            margin-bottom: 28px;
-        }
-        .footer-logo {
-            height: 148px;
-            width: auto;
-            margin-bottom: 12px;
-            filter: brightness(0) invert(1);
-        }
-        .footer-tagline {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            letter-spacing: 2px;
-            color: var(--accent);
-            font-weight: 500;
-        }
-        .footer-contact-row {
-            display: flex;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 40px;
-            flex-wrap: wrap;
-            margin: 30px 0 32px;
-            font-size: 0.95rem;
+            margin-bottom: 40px;
         }
-        .footer-contact-row span {
-            display: inline-flex;
+        .footer-brand-col .footer-logo {
+            height: 100px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            margin-bottom: 15px;
+        }
+        .footer-brand-col p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.6;
+            max-width: 300px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .footer-social a {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
             align-items: center;
-            gap: 8px;
-            color: #f0e6da;
+            justify-content: center;
+            transition: var(--transition);
+            text-decoration: none;
         }
-        .footer-contact-row i {
-            color: var(--accent);
+        .footer-social a:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        .footer-col h4 {
             font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .footer-divider {
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .footer-col ul li a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        .footer-col ul li i {
+            margin-right: 10px;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-bottom p {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.5px;
+        }
+        .footer-bottom .footer-divider {
             width: 60px;
             height: 2px;
             background: var(--accent);
-            margin: 20px auto;
+            margin: 15px auto;
             opacity: 0.5;
         }
-        .footer-copyright {
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.7);
-            letter-spacing: 0.5px;
+        @media (max-width: 850px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
         }
-        .footer-copyright p {
-            margin: 5px 0;
-        }
-        @media (max-width: 768px) {
-            footer { padding: 50px 5% 25px; }
-            .footer-contact-row { gap: 20px; flex-direction: column; align-items: center; }
-            .footer-contact-row span { font-size: 0.85rem; }
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-brand-col p {
+                max-width: 100%;
+            }
+            .footer-social {
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
-
 
 <nav id="navbar">
     <div class="nav-left-group">
@@ -962,6 +1209,7 @@
         </div>
     </div>
 </nav>
+
 <div class="marquee-container">
     <div class="marquee-track">
         <div class="marquee-content">
@@ -973,7 +1221,7 @@
     </div>
 </div>
 
-<!-- Search Overlay -->
+<!-- SEARCH OVERLAY -->
 <div class="search-overlay" id="searchOverlay">
     <div class="close-search" id="closeSearchBtn"><i class="fas fa-times"></i></div>
     <div class="search-container">
@@ -988,6 +1236,7 @@
     <div class="close-drawer" id="closeDrawerBtn"><i class="fas fa-times"></i></div>
     <a href="#top"><i class="fas fa-home"></i> Home</a>
     <a href="#products"><i class="fas fa-box-open"></i> Collection</a>
+    <a href="#nature"><i class="fas fa-leaf"></i> Nature</a>
     <a href="#storysection"><i class="fas fa-book-open"></i> Our Story</a>
     <a href="#certs"><i class="fas fa-certificate"></i> Quality</a>
     <a href="#contact-founder"><i class="fas fa-headset"></i> Connect</a>
@@ -1009,12 +1258,12 @@
         <h2>Discover The Collection</h2>
         <p>Luxury wellness essentials crafted for confidence & performance.</p>
     </div>
-    <a href="hey.html" id="exploreProductsBtn" class="explore-btn">
+    <a href="#products" id="exploreProductsBtn" class="explore-btn">
         Explore Our Products <i class="fas fa-arrow-right"></i>
     </a>
 </div>
 
-<!-- COVER PHOTO - Fully Responsive -->
+<!-- COVER PHOTO -->
 <div class="cover-banner">
     <img class="cover-image" src="IMG_8874.jpeg" alt="Luxury Wellness Cover">
 </div>
@@ -1031,10 +1280,42 @@
     </div>
 </div>
 
-<!-- PRODUCTS section with dynamic image switching on variation select -->
+<!-- PRODUCTS section -->
 <section id="products" class="section-padding">
     <div class="section-title"><h2>The Signature Collection</h2><p>Potent Wellness In Every Bite & Beyond</p></div>
     <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- NATURE SECTION - PLANT GREEN BACKGROUND -->
+<section id="nature" class="nature-section">
+    <div class="nature-content">
+        <div class="nature-image">
+            <img src="nature-placeholder.jpg" alt="Nature-inspired wellness" onerror="this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=400&fit=crop'">
+        </div>
+        <div class="nature-text">
+            <h2>Rooted in Nature</h2>
+            <p>We believe that the most powerful wellness solutions come from the earth. Our products are crafted with carefully selected natural ingredients, sourced from sustainable farms that respect the environment.</p>
+            <p>From the rich cacao of our chocolates to the pure botanical extracts in our sprays, every ingredient is chosen for its potency and purity.</p>
+            <div class="nature-features">
+                <div class="nature-feature-item">
+                    <i class="fas fa-seedling"></i>
+                    <div><h4>Sustainably Sourced</h4><p>Ethical & eco-friendly farming</p></div>
+                </div>
+                <div class="nature-feature-item">
+                    <i class="fas fa-flask"></i>
+                    <div><h4>Lab Tested</h4><p>Pure & potent formulations</p></div>
+                </div>
+                <div class="nature-feature-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <div><h4>Plant-Based</h4><p>Natural, vegan-friendly ingredients</p></div>
+                </div>
+                <div class="nature-feature-item">
+                    <i class="fas fa-recycle"></i>
+                    <div><h4>Eco-Conscious</h4><p>Minimal, sustainable packaging</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- TRUST Section -->
@@ -1070,18 +1351,10 @@
     </div>
 </section>
 
-<!-- Story section -->
-<section class="section-padding">
-    <div class="benefits-content">
-        <div><h2 style="font-size: 2.5rem; color: var(--primary);">Natural Science. <br>Luxury Indulgence.</h2><p style="margin:20px 0;">AdultBite combines ancient herbal wisdom with premium cacao for modern adult wellness.</p><video autoplay muted loop playsinline class="nature-video-small"><source src="nature.mp4" type="video/mp4"></video></div>
-    </div>
-    <div id="storysection" class="mission-box"><h3>Our Story</h3><p>Adult Bite is on a mission to make intimacy wellness open, approachable, and confidence boosting for modern adults.</p><p>We create bold products that help people feel closer, happier, and more connected.</p><span class="age-restriction">21+ only</span></div>
-</section>
-
 <!-- Contact Founder -->
 <section id="contact-founder" class="contact-founder">
     <div><img src="team.jpeg" alt="founder" class="circular-img"><h2 style="font-size:2rem; color:var(--primary);">Talk With Our Wellness Team</h2><p>Need guidance or product support? We're here to help you privately.</p>
-    <div class="contact-buttons"><a href="https://wa.me/+91 9996631422?text=Hi%20AdultBite,%20I%20visited%20your%20website" class="contact-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="mailto:support@adultbite.com" class="contact-btn"><i class="far fa-envelope"></i> Email</a><a href="https://instagram.com/adult.bite" class="contact-btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></div>
+    <div class="contact-buttons"><a href="https://wa.me/+919996631422?text=Hi%20AdultBite,%20I%20visited%20your%20website" class="contact-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="mailto:support@adultbite.com" class="contact-btn"><i class="far fa-envelope"></i> Email</a><a href="https://instagram.com/adult.bite" class="contact-btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></div>
     </div>
 </section>
 
@@ -1091,62 +1364,96 @@
     <div class="cert-single-card"><div class="cert-badges-group"><div class="cert-badge-item"><i class="fas fa-certificate"></i><h4>FSSAI Certified</h4><p>Food safety & quality</p></div><div class="cert-badge-item"><i class="fas fa-award"></i><h4>ISO Certified</h4><p>Excellence in mfg</p></div></div><span style="display:inline-block; margin-top:20px; font-weight:500; color:var(--accent);">✔ Premium Wellness Certified</span></div>
 </section>
 
-<!-- PROFESSIONAL FOOTER -->
+<!-- ===== ENHANCED FOOTER ===== -->
 <footer>
-    <div class="footer-professional">
-        <div class="footer-brand">
+    <div class="footer-content">
+        <div class="footer-brand-col">
             <img src="mainlogo.png" alt="AdultBite" class="footer-logo" style="filter: brightness(0) invert(1);">
-            <div class="footer-tagline">Melt • Moan • More</div>
+            <p>Premium wellness luxury crafted for confidence, intimacy & performance. Trusted by 1+ million Indians.</p>
+            <div class="footer-social">
+                <a href="https://instagram.com/adult.bite" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/+919996631422" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:support@adultbite.com"><i class="far fa-envelope"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
         </div>
-        <div class="footer-contact-row">
-            <span><i class="fas fa-map-marker-alt"></i> New Delhi, India</span>
-            <span><i class="fas fa-envelope"></i> hello@adultbite.com</span>
-            <span><i class="fas fa-phone-alt"></i> +91 9996631422</span>
+        
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#contact-founder"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Shipping Policy</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Returns</a></li>
+            </ul>
         </div>
+       
+    </div>
+    <div class="footer-bottom">
         <div class="footer-divider"></div>
-        <div class="footer-copyright">
-            <p><i class="fas fa-exclamation-triangle"></i> ADULTS ONLY: You must be 21+ to purchase.</p>
-            <p>&copy; 2026 AdultBite Luxury Wellness. All rights reserved.</p>
-        </div>
+        <p><i class="fas fa-exclamation-triangle" style="color: var(--accent); margin-right: 6px;"></i> ADULTS ONLY: You must be 21+ to purchase.</p>
+        <p>&copy; 2026 AdultBite Luxury Wellness. All rights reserved. Made with <i class="fas fa-heart" style="color: var(--accent);"></i> in India</p>
     </div>
 </footer>
 
 <script>
-// Enhanced products data with different images per variation
+// PRODUCTS DATA - All products now have the same simple structure like Playing Cards and Delay Spray
 const productsData = [
     { 
         name: "Chocolate", 
-        basePrice: "₹300",
-        comboPrice: "₹550",
+        price: "₹300",
         img: "choclatesingle.PNG", 
+        customLink: "singlechocolate.html",
         category: "chocolate", 
         comingSoon: false,
-        hasVariations: true,
-        variations: [
-            { type: "Single", price: "₹300", link: "singlechocolate.html", suffix: "", image: "choclatesingle.PNG" },
-            { type: "Combo", price: "₹550", link: "combochocolate.html", suffix: " (Save ₹50)", image: "chocolate3.png" }
-        ]
+        hasVariations: false
     },
     { 
         name: "Oral Spray", 
-        basePrice: "₹400",
+        price: "₹400",
         img: "spray.png", 
+        customLink: "oral_spray_mango.html",
         category: "spray", 
         comingSoon: false,
-        hasVariations: true,
-        variations: [
-            { type: "Mango", price: "₹400", link: "oral_spray_mango.html", suffix: " - Mango Bliss", image: "spray.png" },
-            { type: "Bubble Gum", price: "₹400", link: "oral_spray_bubblegum.html", suffix: " - Bubble Gum", image: "oralbubu.jpeg" }
-        ]
+        hasVariations: false
     },
-    { name: "Playing Cards", price: "₹150", img: "main_cards.jpeg", customLink: "cards.html", category: "cards", comingSoon: false, hasVariations: false },
-    { name: "Delay Spray", price: "₹300", img: "mian_delay.png", customLink: "#", category: "delay", comingSoon: true, hasVariations: false },
-    { name: "Premium Condoms", price: "₹100", img: "main_condoms.png", customLink: "#", category: "condoms", comingSoon: true, hasVariations: false },
-    { name: "Lubricant", price: "₹300", img: "mian_lube.jpeg", customLink: "#", category: "lube", comingSoon: true, hasVariations: false }
+    { 
+        name: "Playing Cards", 
+        price: "₹150", 
+        img: "main_cards.jpeg", 
+        customLink: "cards.html", 
+        category: "cards", 
+        comingSoon: false, 
+        hasVariations: false 
+    },
+    { 
+        name: "Delay Spray", 
+        price: "₹300", 
+        img: "mian_delay.png", 
+        customLink: "#", 
+        category: "delay", 
+        comingSoon: true, 
+        hasVariations: false 
+    },
+    { 
+        name: "Premium Condoms", 
+        price: "₹100", 
+        img: "main_condoms.png", 
+        customLink: "#", 
+        category: "condoms", 
+        comingSoon: true, 
+        hasVariations: false 
+    },
+    { 
+        name: "Lubricant", 
+        price: "₹300", 
+        img: "mian_lube.jpeg", 
+        customLink: "#", 
+        category: "lube", 
+        comingSoon: true, 
+        hasVariations: false 
+    }
 ];
-
-// State to track selected variation for each product
-let selectedVariations = {};
 
 function renderProducts() {
     const grid = document.getElementById('productGrid');
@@ -1162,30 +1469,6 @@ function renderProducts() {
                     <div class="product-btn-wrapper"><button class="btn-coming" disabled>Coming Soon</button></div>
                 </div>
             `;
-        } else if(p.hasVariations) {
-            if(!selectedVariations[idx]) {
-                selectedVariations[idx] = p.variations[0];
-            }
-            const currentVar = selectedVariations[idx];
-            const displayPrice = currentVar.price;
-            const displayName = p.name + (currentVar.suffix || "");
-            const linkUrl = currentVar.link;
-            const currentImage = currentVar.image || p.img;
-            
-            const varButtons = p.variations.map((v, vIdx) => {
-                const isActive = selectedVariations[idx] === v;
-                return `<button class="variation-btn ${isActive ? 'active' : ''}" data-product-index="${idx}" data-var-index="${vIdx}">${v.type} ${v.price}</button>`;
-            }).join('');
-            
-            return `
-                <div class="product-card" data-product-idx="${idx}">
-                    <img src="${currentImage}" class="product-img product-img-${idx}" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
-                    <h3>${displayName}</h3>
-                    <div class="variation-selector">${varButtons}</div>
-                    <div class="price">${displayPrice}</div>
-                    <div class="product-btn-wrapper"><a href="${linkUrl}" class="btn-add add-to-cart-link">Add To Cart</a></div>
-                </div>
-            `;
         } else {
             return `
                 <div class="product-card">
@@ -1197,51 +1480,21 @@ function renderProducts() {
             `;
         }
     }).join('');
-    
-    document.querySelectorAll('.variation-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const productIdx = parseInt(btn.dataset.productIndex);
-            const varIdx = parseInt(btn.dataset.varIndex);
-            const product = productsData[productIdx];
-            if(product && product.hasVariations) {
-                const newVariation = product.variations[varIdx];
-                selectedVariations[productIdx] = newVariation;
-                const card = btn.closest('.product-card');
-                const h3 = card.querySelector('h3');
-                const priceDiv = card.querySelector('.price');
-                const link = card.querySelector('.add-to-cart-link');
-                const productImg = card.querySelector('.product-img');
-                
-                h3.textContent = product.name + (newVariation.suffix || "");
-                priceDiv.textContent = newVariation.price;
-                if(link) link.href = newVariation.link;
-                if(productImg && newVariation.image) {
-                    productImg.src = newVariation.image;
-                }
-                
-                card.querySelectorAll('.variation-btn').forEach((b, i) => {
-                    if(i === varIdx) b.classList.add('active');
-                    else b.classList.remove('active');
-                });
-            }
-        });
-    });
 }
 
 renderProducts();
 
-const exploreBtn = document.getElementById('exploreProductsBtn');
-if(exploreBtn) {
-    exploreBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.location.href = "new-products-page.html";
-    });
-}
+// Explore Button - smooth scroll to products
+document.getElementById('exploreProductsBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+});
 
+// Navbar scroll effect
 const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => { if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); });
 
+// Side Drawer
 const dotsTrigger = document.getElementById('dotsMenuTrigger');
 const sideDrawer = document.getElementById('sideDrawer');
 const closeDrawerBtn = document.getElementById('closeDrawerBtn');
@@ -1255,24 +1508,21 @@ const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const searchResultsDiv = document.getElementById('searchResults');
 
+// Search logic
 function performSearch() {
     const query = searchInput.value.toLowerCase().trim();
     if(!query) { searchResultsDiv.classList.remove('active'); return; }
     const filtered = productsData.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
     if(filtered.length === 0) {
-        searchResultsDiv.innerHTML = '<div class="no-results">✨ No products found. Try "Chocolate" or "Spray"</div>';
+        searchResultsDiv.innerHTML = '<div class="no-results"><i class="fas fa-search"></i> No products found. Try "Chocolate" or "Spray"</div>';
     } else {
         searchResultsDiv.innerHTML = filtered.map(p => {
             let link = p.customLink || "#";
             let imgSrc = p.img;
-            if(p.hasVariations && p.variations && p.variations[0]) {
-                link = p.variations[0].link;
-                imgSrc = p.variations[0].image || p.img;
-            }
             return `
                 <div class="search-result-item" onclick="window.location.href='${link !== '#' ? link : '#'}'; document.getElementById('searchOverlay').classList.remove('active'); this.closest('.search-results').classList.remove('active');">
                     <img src="${imgSrc}" onerror="this.src='https://placehold.co/50x50/f5f0ea/4b0118'">
-                    <div><strong>${p.name}</strong><br>${p.price || p.basePrice}</div>
+                    <div><strong>${p.name}</strong><span>${p.price}</span></div>
                 </div>
             `;
         }).join('');
