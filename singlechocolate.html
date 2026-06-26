@@ -1,182 +1,434 @@
-<div id='product-component-1781686564863'></div>
-<script type="text/javascript">
-/*<![CDATA[*/
-(function () {
-  var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-  if (window.ShopifyBuy) {
-    if (window.ShopifyBuy.UI) {
-      ShopifyBuyInit();
-    } else {
-      loadScript();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>Product · Responsive (fourth)</title>
+  <style>
+    /* ----- Reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-  } else {
-    loadScript();
-  }
-  function loadScript() {
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = scriptURL;
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
-    script.onload = ShopifyBuyInit;
-  }
-  function ShopifyBuyInit() {
-    var client = ShopifyBuy.buildClient({
-      domain: 'xez37s-kn.myshopify.com',
-      storefrontAccessToken: 'f705306618b8b395f068f0155d4692f4',
-    });
-    ShopifyBuy.UI.onReady(client).then(function (ui) {
-      ui.createComponent('product', {
-        id: '9128201420974',
-        node: document.getElementById('product-component-1781686564863'),
-        moneyFormat: 'Rs.%20%7B%7Bamount%7D%7D',
-        options: {
-  "product": {
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0",
-          "margin-bottom": "50px"
-        },
-        "text-align": "left"
-      },
-      "title": {
-        "font-size": "26px"
-      },
-      "button": {
-        "font-family": "Gill Sans, sans-serif",
-        ":hover": {
-          "background-color": "#000000"
-        },
-        "background-color": "#000000",
-        ":focus": {
-          "background-color": "#000000"
-        },
-        "border-radius": "15px"
-      },
-      "price": {
-        "font-size": "18px"
-      },
-      "compareAt": {
-        "font-size": "15.299999999999999px"
-      },
-      "unitPrice": {
-        "font-size": "15.299999999999999px"
+    body {
+      background: #f8f6f3;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* ----- Main card wrapper (responsive) ----- */
+    .product-wrapper {
+      max-width: 1200px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12);
+      padding: 28px 24px 40px;
+      transition: padding 0.2s;
+    }
+
+    /* ----- The Shopify component container ----- */
+    #product-component-1781686564863 {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: block;
+    }
+
+    /* ----- Override Shopify's inline styles for responsiveness ----- */
+    #product-component-1781686564863 .shopify-buy__product {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      gap: 28px 32px !important;
+      align-items: flex-start !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* --- Product image column (carousel) --- */
+    #product-component-1781686564863 .shopify-buy__product__image-wrapper {
+      flex: 1 1 300px !important;
+      min-width: 200px !important;
+      max-width: 100% !important;
+      width: auto !important;
+    }
+
+    #product-component-1781686564863 .shopify-buy__product__images {
+      display: block !important;
+      width: 100% !important;
+    }
+
+    #product-component-1781686564863 .shopify-buy__product__image {
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      aspect-ratio: 1 / 1 !important;
+      background: #faf7f2;
+      border-radius: 18px;
+    }
+
+    /* --- Product info column --- */
+    #product-component-1781686564863 .shopify-buy__product__info {
+      flex: 1 1 320px !important;
+      min-width: 220px !important;
+      max-width: 100% !important;
+      padding: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 10px !important;
+    }
+
+    /* Title */
+    #product-component-1781686564863 .shopify-buy__product__title {
+      font-size: clamp(1.4rem, 4.5vw, 2.2rem) !important;
+      font-weight: 600 !important;
+      line-height: 1.2 !important;
+      margin-bottom: 4px !important;
+      color: #1a1a1a !important;
+    }
+
+    /* Price & compare-at */
+    #product-component-1781686564863 .shopify-buy__product__price {
+      font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
+      font-weight: 600 !important;
+      color: #2a2a2a !important;
+    }
+    #product-component-1781686564863 .shopify-buy__product__compare-at {
+      font-size: clamp(0.9rem, 2vw, 1.2rem) !important;
+      text-decoration: line-through;
+      color: #888;
+      margin-left: 8px;
+    }
+
+    /* Description */
+    #product-component-1781686564863 .shopify-buy__product__description {
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem) !important;
+      line-height: 1.6 !important;
+      color: #3d3d3d !important;
+      margin: 6px 0 12px !important;
+    }
+
+    /* Variant selector (dropdown) */
+    #product-component-1781686564863 .shopify-buy__option-selector {
+      margin: 8px 0 12px !important;
+      width: 100% !important;
+      max-width: 280px !important;
+    }
+    #product-component-1781686564863 .shopify-buy__option-selector select {
+      width: 100% !important;
+      padding: 12px 16px !important;
+      border-radius: 12px !important;
+      border: 1.5px solid #ddd !important;
+      background: white !important;
+      font-size: 1rem !important;
+      appearance: auto !important;
+    }
+
+    /* Quantity & button row */
+    #product-component-1781686564863 .shopify-buy__product__quantity {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      align-items: center !important;
+      gap: 14px !important;
+      margin-top: 8px !important;
+    }
+    #product-component-1781686564863 .shopify-buy__product__quantity input {
+      width: 70px !important;
+      padding: 10px 8px !important;
+      border-radius: 12px !important;
+      border: 1.5px solid #ddd !important;
+      font-size: 1rem !important;
+      text-align: center !important;
+    }
+
+    /* --- ADD TO CART BUTTON --- */
+    #product-component-1781686564863 .shopify-buy__btn--add {
+      background-color: #000000 !important;
+      color: white !important;
+      border: none !important;
+      border-radius: 15px !important;
+      padding: 14px 32px !important;
+      font-size: clamp(1rem, 2vw, 1.2rem) !important;
+      font-weight: 600 !important;
+      font-family: 'Gill Sans', 'Helvetica Neue', sans-serif !important;
+      cursor: pointer !important;
+      transition: background-color 0.15s !important;
+      letter-spacing: 0.3px !important;
+      width: auto !important;
+      min-width: 160px !important;
+      flex: 0 1 auto !important;
+    }
+    #product-component-1781686564863 .shopify-buy__btn--add:hover {
+      background-color: #222 !important;
+    }
+    #product-component-1781686564863 .shopify-buy__btn--add:focus {
+      background-color: #000000 !important;
+      outline: 2px solid #aaa;
+      outline-offset: 2px;
+    }
+
+    /* ----- Responsive tweaks for small screens ----- */
+    @media screen and (max-width: 700px) {
+      .product-wrapper {
+        padding: 16px 12px 30px;
+        border-radius: 24px;
       }
-    },
-    "layout": "horizontal",
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "description": true
-    },
-    "width": "100%",
-    "text": {
-      "button": "Add to cart"
+      #product-component-1781686564863 .shopify-buy__product {
+        flex-direction: column !important;
+        gap: 18px !important;
+      }
+      #product-component-1781686564863 .shopify-buy__product__image-wrapper {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      #product-component-1781686564863 .shopify-buy__product__info {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+      }
+      #product-component-1781686564863 .shopify-buy__option-selector {
+        max-width: 100% !important;
+      }
+      #product-component-1781686564863 .shopify-buy__product__quantity {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+      }
+      #product-component-1781686564863 .shopify-buy__product__quantity input {
+        width: 100% !important;
+        max-width: 120px !important;
+        align-self: center !important;
+      }
+      #product-component-1781686564863 .shopify-buy__btn--add {
+        width: 100% !important;
+        min-width: unset !important;
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 16px 20px !important;
+      }
     }
-  },
-  "productSet": {
-    "styles": {
-      "products": {
-        "@media (min-width: 601px)": {
-          "margin-left": "-20px"
+
+    @media screen and (max-width: 420px) {
+      body { padding: 8px; }
+      .product-wrapper { padding: 12px 8px 24px; }
+      #product-component-1781686564863 .shopify-buy__product__title {
+        font-size: 1.3rem !important;
+      }
+      #product-component-1781686564863 .shopify-buy__product__price {
+        font-size: 1.1rem !important;
+      }
+      #product-component-1781686564863 .shopify-buy__product__description {
+        font-size: 0.9rem !important;
+      }
+      #product-component-1781686564863 .shopify-buy__btn--add {
+        font-size: 1rem !important;
+        padding: 14px 12px !important;
+      }
+    }
+
+    /* Fix for any leftover inline max-width on images */
+    #product-component-1781686564863 img {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+
+    /* Hide any floating cart toggle that might appear (optional) */
+    .shopify-buy__cart-toggle {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="product-wrapper">
+    <!-- Shopify Buy Button container (fourth product) -->
+    <div id='product-component-1781686564863'></div>
+  </div>
+
+  <script type="text/javascript">
+    /*<![CDATA[*/
+    (function () {
+      var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+      if (window.ShopifyBuy) {
+        if (window.ShopifyBuy.UI) {
+          ShopifyBuyInit();
+        } else {
+          loadScript();
         }
+      } else {
+        loadScript();
       }
-    }
-  },
-  "modalProduct": {
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "button": false,
-      "buttonWithQuantity": true
-    },
-    "styles": {
-      "product": {
-        "@media (min-width: 601px)": {
-          "max-width": "100%",
-          "margin-left": "0px",
-          "margin-bottom": "0px"
-        }
-      },
-      "button": {
-        "font-family": "Gill Sans, sans-serif",
-        ":hover": {
-          "background-color": "#000000"
-        },
-        "background-color": "#000000",
-        ":focus": {
-          "background-color": "#000000"
-        },
-        "border-radius": "15px"
-      },
-      "title": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "bold",
-        "font-size": "26px",
-        "color": "#4c4c4c"
-      },
-      "price": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "18px",
-        "color": "#4c4c4c"
-      },
-      "compareAt": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "15.299999999999999px",
-        "color": "#4c4c4c"
-      },
-      "unitPrice": {
-        "font-family": "Helvetica Neue, sans-serif",
-        "font-weight": "normal",
-        "font-size": "15.299999999999999px",
-        "color": "#4c4c4c"
+      function loadScript() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = scriptURL;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(script);
+        script.onload = ShopifyBuyInit;
       }
-    },
-    "text": {
-      "button": "Add to cart"
-    }
-  },
-  "option": {},
-  "cart": {
-    "styles": {
-      "button": {
-        "font-family": "Gill Sans, sans-serif",
-        ":hover": {
-          "background-color": "#000000"
-        },
-        "background-color": "#000000",
-        ":focus": {
-          "background-color": "#000000"
-        },
-        "border-radius": "15px"
+      function ShopifyBuyInit() {
+        var client = ShopifyBuy.buildClient({
+          domain: 'xez37s-kn.myshopify.com',
+          storefrontAccessToken: 'f705306618b8b395f068f0155d4692f4',
+        });
+        ShopifyBuy.UI.onReady(client).then(function (ui) {
+          ui.createComponent('product', {
+            id: '9128201420974',
+            node: document.getElementById('product-component-1781686564863'),
+            moneyFormat: 'Rs.%20%7B%7Bamount%7D%7D',
+            options: {
+              "product": {
+                "styles": {
+                  "product": {
+                    "@media (min-width: 601px)": {
+                      "max-width": "100%",
+                      "margin-left": "0",
+                      "margin-bottom": "50px"
+                    },
+                    "text-align": "left"
+                  },
+                  "title": {
+                    "font-size": "26px"
+                  },
+                  "button": {
+                    "font-family": "Gill Sans, sans-serif",
+                    ":hover": {
+                      "background-color": "#000000"
+                    },
+                    "background-color": "#000000",
+                    ":focus": {
+                      "background-color": "#000000"
+                    },
+                    "border-radius": "15px"
+                  },
+                  "price": {
+                    "font-size": "18px"
+                  },
+                  "compareAt": {
+                    "font-size": "15.299999999999999px"
+                  },
+                  "unitPrice": {
+                    "font-size": "15.299999999999999px"
+                  }
+                },
+                "layout": "horizontal",
+                "contents": {
+                  "img": false,
+                  "imgWithCarousel": true,
+                  "description": true
+                },
+                "width": "100%",
+                "text": {
+                  "button": "Add to cart"
+                }
+              },
+              "productSet": {
+                "styles": {
+                  "products": {
+                    "@media (min-width: 601px)": {
+                      "margin-left": "-20px"
+                    }
+                  }
+                }
+              },
+              "modalProduct": {
+                "contents": {
+                  "img": false,
+                  "imgWithCarousel": true,
+                  "button": false,
+                  "buttonWithQuantity": true
+                },
+                "styles": {
+                  "product": {
+                    "@media (min-width: 601px)": {
+                      "max-width": "100%",
+                      "margin-left": "0px",
+                      "margin-bottom": "0px"
+                    }
+                  },
+                  "button": {
+                    "font-family": "Gill Sans, sans-serif",
+                    ":hover": {
+                      "background-color": "#000000"
+                    },
+                    "background-color": "#000000",
+                    ":focus": {
+                      "background-color": "#000000"
+                    },
+                    "border-radius": "15px"
+                  },
+                  "title": {
+                    "font-family": "Helvetica Neue, sans-serif",
+                    "font-weight": "bold",
+                    "font-size": "26px",
+                    "color": "#4c4c4c"
+                  },
+                  "price": {
+                    "font-family": "Helvetica Neue, sans-serif",
+                    "font-weight": "normal",
+                    "font-size": "18px",
+                    "color": "#4c4c4c"
+                  },
+                  "compareAt": {
+                    "font-family": "Helvetica Neue, sans-serif",
+                    "font-weight": "normal",
+                    "font-size": "15.299999999999999px",
+                    "color": "#4c4c4c"
+                  },
+                  "unitPrice": {
+                    "font-family": "Helvetica Neue, sans-serif",
+                    "font-weight": "normal",
+                    "font-size": "15.299999999999999px",
+                    "color": "#4c4c4c"
+                  }
+                },
+                "text": {
+                  "button": "Add to cart"
+                }
+              },
+              "option": {},
+              "cart": {
+                "styles": {
+                  "button": {
+                    "font-family": "Gill Sans, sans-serif",
+                    ":hover": {
+                      "background-color": "#000000"
+                    },
+                    "background-color": "#000000",
+                    ":focus": {
+                      "background-color": "#000000"
+                    },
+                    "border-radius": "15px"
+                  }
+                },
+                "text": {
+                  "total": "Subtotal",
+                  "button": "Checkout"
+                }
+              },
+              "toggle": {
+                "styles": {
+                  "toggle": {
+                    "font-family": "Gill Sans, sans-serif",
+                    "background-color": "#000000",
+                    ":hover": {
+                      "background-color": "#000000"
+                    },
+                    ":focus": {
+                      "background-color": "#000000"
+                    }
+                  }
+                }
+              }
+            },
+          });
+        });
       }
-    },
-    "text": {
-      "total": "Subtotal",
-      "button": "Checkout"
-    }
-  },
-  "toggle": {
-    "styles": {
-      "toggle": {
-        "font-family": "Gill Sans, sans-serif",
-        "background-color": "#000000",
-        ":hover": {
-          "background-color": "#000000"
-        },
-        ":focus": {
-          "background-color": "#000000"
-        }
-      }
-    }
-  }
-},
-      });
-    });
-  }
-})();
-/*]]>*/
-</script>
+    })();
+    /*]]>*/
+  </script>
+</body>
+</html>
