@@ -1,32 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="AdultBite – Premium Wellness Luxury. Crafted for confidence, intimacy & performance. Trusted by 1+ million Indians.">
-    <title>ADULTBITE | Premium Wellness Luxury</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="AdultBite – Premium Wellness Luxury. Crafted for confidence, intimacy & performance. Trusted by 1+ million Indians." />
+    <title>ADULTBITE · Premium Wellness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <style>
-        :root {
-            --primary: #4B0118;
-            --primary-light: #701c34;
-            --bg-light: #FFFFFF;
-            --bg-secondary: #F9F7F5;
-            --text-main: #1A1A1A;
-            --text-muted: #5a5a5a;
-            --accent: #D4AF37;
-            --accent-glow: rgba(212, 175, 55, 0.25);
-            --glass: rgba(255, 255, 255, 0.92);
-            --shadow-sm: 0 8px 20px rgba(0,0,0,0.03);
-            --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.08);
-            --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            --nature-green: #1a3a1a;
-            --nature-green-light: #2d5a2d;
-            --product-card-radius: 24px;
-            --product-card-shadow: 0 12px 30px -8px rgba(0,0,0,0.06);
-        }
-
+        /* ----- RESET & BASE ----- */
         * {
             margin: 0;
             padding: 0;
@@ -35,58 +17,21 @@
             scroll-behavior: smooth;
         }
 
-        /* Logo Styles - Perfectly Centered on all devices */
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 5;
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-        }
-
-        .logo-img {
-            height: 130px;
-            width: auto;
-            max-width: 100%;
-            display: block;
-            object-fit: contain;
-            transition: var(--transition);
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-        }
-
-        @media screen and (max-width: 768px) {
-            .logo-img {
-                height: 130px;
-            }
-        }
-        
-        .logo-img:hover {
-            transform: scale(1.02);
-            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.4));
-        }
-        
-        .logo-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-        
-        /* Custom scrollbar - minimized size */
-        ::-webkit-scrollbar { width: 3px; height: 3px; }
-        ::-webkit-scrollbar-track { background: linear-gradient(180deg, #2a0210 0%, #1a0108 100%); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb { background: radial-gradient(ellipse at 30% 40%, var(--accent) 0%, #b8922a 60%, #7a5c1a 100%); border-radius: 20px; }
-
-        h1, h2, h3, .hero-content h1, .section-title h2, .benefit-item h4 {
-            font-family: 'Playfair Display', serif;
+        :root {
+            --primary: #4B0118;
+            --primary-light: #701c34;
+            --bg-light: #FFFFFF;
+            --bg-secondary: #F9F7F5;
+            --text-main: #1A1A1A;
+            --text-muted: #5a5a5a;
+            --accent: #D4AF37;
+            --glass: rgba(255, 255, 255, 0.92);
+            --shadow-sm: 0 8px 20px rgba(0,0,0,0.03);
+            --shadow-md: 0 20px 35px -12px rgba(0,0,0,0.08);
+            --nature-green: #1a3a1a;
+            --nature-green-light: #2d5a2d;
+            --product-card-radius: 24px;
+            --product-card-shadow: 0 12px 30px -8px rgba(0,0,0,0.06);
         }
 
         body {
@@ -96,41 +41,29 @@
             line-height: 1.5;
         }
 
-        .reveal {
-            opacity: 1;
-            transform: none;
+        h1, h2, h3, .section-title h2 {
+            font-family: 'Playfair Display', serif;
         }
 
-        /* Navigation - Clean layout */
+        /* ----- SCROLLBAR (minimal) ----- */
+        ::-webkit-scrollbar { width: 3px; height: 3px; }
+        ::-webkit-scrollbar-track { background: #2a0210; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 20px; }
+
+        /* ----- NAVIGATION (static, no animation) ----- */
         nav {
-            position: static;
-            top: 5%;
             width: 100%;
             padding: 12px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 2100;
-            transition: var(--transition);
             background: #4b0118;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            z-index: 2100;
         }
 
-        nav.scrolled {
-            background: #4b0118;
-            padding: 8px 5%;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        .nav-left-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            z-index: 10;
-        }
-
-        .nav-right-group {
+        .nav-left-group, .nav-right-group {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -141,23 +74,39 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
             font-size: 1.3rem;
             color: white;
-            transition: 0.2s;
             padding: 8px;
             border-radius: 50%;
             background: rgba(255,255,255,0.08);
             width: 40px;
             height: 40px;
-        }
-        .nav-icon-btn:hover {
-            background: var(--accent);
-            color: #4b0118;
-            transform: scale(1.05);
+            cursor: default;
         }
 
-        /* ----- SEARCH OVERLAY (Redesigned) ----- */
+        /* Logo – perfectly centered */
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+        }
+        .logo-img {
+            height: 130px;
+            width: auto;
+            max-width: 100%;
+            display: block;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        @media screen and (max-width: 768px) {
+            .logo-img { height: 130px; }
+        }
+
+        /* ----- SEARCH OVERLAY (no animation) ----- */
         .search-overlay {
             position: fixed;
             top: 0;
@@ -172,7 +121,7 @@
             justify-content: center;
             visibility: hidden;
             opacity: 0;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            transition: none;
             padding-top: 10vh;
         }
         .search-overlay.active {
@@ -187,12 +136,7 @@
             display: flex;
             align-items: center;
             padding: 6px 6px 6px 28px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,175,55,0.3);
-            transform: translateY(-20px);
-            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        }
-        .search-overlay.active .search-container {
-            transform: translateY(0);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
         }
         .search-container input {
             flex: 1;
@@ -202,12 +146,6 @@
             font-size: 1.2rem;
             background: transparent;
             color: #4b0118;
-            font-weight: 400;
-            letter-spacing: 0.3px;
-        }
-        .search-container input::placeholder {
-            color: #a09080;
-            font-weight: 300;
         }
         .search-container button {
             background: var(--accent);
@@ -217,17 +155,10 @@
             font-weight: 600;
             cursor: pointer;
             color: #4b0118;
-            transition: 0.2s;
             font-size: 1rem;
             display: flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(212,175,55,0.3);
-        }
-        .search-container button:hover {
-            background: #4b0118;
-            color: var(--accent);
-            transform: scale(1.02);
         }
         .close-search {
             position: absolute;
@@ -243,13 +174,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: 0.25s;
             border: 1px solid rgba(255,255,255,0.1);
-        }
-        .close-search:hover {
-            background: var(--accent);
-            color: #4b0118;
-            transform: rotate(90deg);
         }
         .search-results {
             position: fixed;
@@ -258,7 +183,7 @@
             transform: translateX(-50%);
             width: 90%;
             max-width: 680px;
-            background: white;
+            background: rgba(255,255,255,0.98);
             border-radius: 32px;
             padding: 20px 10px;
             max-height: 55vh;
@@ -266,37 +191,23 @@
             z-index: 2301;
             display: none;
             box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
-            background: rgba(255,255,255,0.98);
         }
-        .search-results.active {
-            display: block;
-        }
+        .search-results.active { display: block; }
         .search-result-item {
             display: flex;
             align-items: center;
             gap: 18px;
             padding: 14px 20px;
             border-radius: 20px;
-            cursor: pointer;
-            transition: 0.2s;
             border-bottom: 1px solid #f0ebe4;
         }
-        .search-result-item:last-child {
-            border-bottom: none;
-        }
-        .search-result-item:hover {
-            background: #f9f3e8;
-            transform: translateX(6px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-        }
+        .search-result-item:last-child { border-bottom: none; }
         .search-result-item img {
             width: 54px;
             height: 54px;
             object-fit: cover;
             border-radius: 16px;
             background: #f5f0ea;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
         .search-result-item div strong {
             display: block;
@@ -312,46 +223,9 @@
             text-align: center;
             padding: 40px 20px;
             color: #5a5a5a;
-            font-size: 1.1rem;
-        }
-        .no-results i {
-            color: var(--accent);
-            margin-right: 10px;
-        }
-        @media (max-width: 640px) {
-            .search-container {
-                padding: 4px 4px 4px 18px;
-                border-radius: 60px;
-            }
-            .search-container input {
-                font-size: 1rem;
-                padding: 14px 8px;
-            }
-            .search-container button {
-                padding: 12px 20px;
-                font-size: 0.9rem;
-            }
-            .search-results {
-                top: 140px;
-                padding: 14px 6px;
-            }
-            .search-result-item {
-                padding: 12px 14px;
-            }
-            .close-search {
-                top: 16px;
-                right: 20px;
-                width: 44px;
-                height: 44px;
-                font-size: 1.6rem;
-            }
         }
 
-        .nav-links {
-            display: none !important;
-        }
-
-        /* Side Drawer */
+        /* ----- SIDE DRAWERS (no animation) ----- */
         .side-drawer {
             position: fixed;
             top: 0;
@@ -361,38 +235,26 @@
             background: #4b0118f2;
             backdrop-filter: blur(16px);
             z-index: 2200;
-            transition: right 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: none;
             padding: 100px 28px;
             box-shadow: -5px 0 30px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
             gap: 28px;
         }
-        .side-drawer.active {
-            right: 0;
-        }
+        .side-drawer.active { right: 0; }
         .side-drawer a {
             color: white;
             text-decoration: none;
             font-size: 1.2rem;
             font-weight: 500;
-            letter-spacing: 1px;
             padding: 12px 0;
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            transition: 0.2s;
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        .side-drawer a i {
-            width: 28px;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-        .side-drawer a:hover {
-            color: var(--accent);
-            padding-left: 8px;
-        }
+        .side-drawer a i { width: 28px; color: var(--accent); }
         .close-drawer {
             position: absolute;
             top: 20px;
@@ -407,11 +269,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: 0.2s;
-        }
-        .close-drawer:hover {
-            background: var(--accent);
-            color: #4b0118;
         }
 
         .profile-drawer {
@@ -423,16 +280,14 @@
             background: #4b0118f2;
             backdrop-filter: blur(16px);
             z-index: 2200;
-            transition: left 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: none;
             padding: 100px 28px;
             box-shadow: 5px 0 30px rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
             gap: 28px;
         }
-        .profile-drawer.active {
-            left: 0;
-        }
+        .profile-drawer.active { left: 0; }
         .profile-drawer .close-profile {
             position: absolute;
             top: 20px;
@@ -457,14 +312,8 @@
             color: var(--accent);
             margin-bottom: 15px;
         }
-        .profile-drawer .profile-info h3 {
-            color: white;
-            font-size: 1.3rem;
-        }
-        .profile-drawer .profile-info p {
-            color: #ccc;
-            font-size: 0.8rem;
-        }
+        .profile-drawer .profile-info h3 { color: white; }
+        .profile-drawer .profile-info p { color: #ccc; font-size: 0.8rem; }
         .profile-drawer .profile-link {
             color: white;
             text-decoration: none;
@@ -473,35 +322,14 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            transition: 0.2s;
         }
-        .profile-drawer .profile-link i {
-            width: 28px;
-            color: var(--accent);
-        }
-        .profile-drawer .profile-link:hover {
-            color: var(--accent);
-            padding-left: 8px;
-        }
+        .profile-drawer .profile-link i { width: 28px; color: var(--accent); }
 
-        @media (max-width: 768px) {
-            .nav-icon-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 1.1rem;
-            }
-            .nav-left-group {
-                gap: 8px;
-            }
-        }
-        
+        /* ----- COVER & BANNERS ----- */
         .cover-banner {
             width: 100%;
             margin: 0;
-            position: relative;
-            overflow: hidden;
             line-height: 0;
-            margin-top: 0px;
             display: block;
         }
         .cover-image {
@@ -509,35 +337,39 @@
             height: auto;
             aspect-ratio: 16 / 9;
             object-fit: cover;
-            object-position: center center;
             display: block;
-            transition: all 0.2s ease;
-        }
-        @media (max-width: 1024px) {
-            .cover-image {
-                aspect-ratio: 4 / 3;
-                min-height: 320px;
-            }
         }
         @media (max-width: 768px) {
-            .cover-image {
-                aspect-ratio: 3 / 4;
-                min-height: 280px;
-                object-fit: cover;
-                object-position: top center;
-            }
-            .cover-banner { 
-                margin-top: 0px; 
-            }
-        }
-        @media (max-width: 480px) {
-            .cover-image {
-                aspect-ratio: 1 / 1.2;
-                min-height: 240px;
-                object-fit: cover;
-            }
+            .cover-image { aspect-ratio: 3 / 4; }
         }
 
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            background: linear-gradient(95deg, var(--primary) 0%, #2f0310 100%);
+            padding: 14px 0;
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: scrollText 29s linear infinite;
+        }
+        .marquee-content {
+            white-space: nowrap;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            color: var(--accent);
+            padding-right: 80px;
+            flex-shrink: 0;
+        }
+        @keyframes scrollText {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ----- EXPLORE BUTTON (static) ----- */
         .explore-button-section {
             padding: 80px 5% 40px;
             background: var(--bg-light);
@@ -556,40 +388,15 @@
             border-radius: 60px;
             text-decoration: none;
             letter-spacing: 1px;
-            transition: var(--transition);
-            box-shadow: 0 15px 30px rgba(75, 1, 24, 0.3);
             border: 1px solid rgba(212, 175, 55, 0.5);
             font-family: 'Poppins', sans-serif;
         }
-        .explore-btn i {
-            font-size: 1.3rem;
-            transition: transform 0.3s ease;
-        }
-        .explore-btn:hover {
-            transform: translateY(-4px);
-            background: linear-gradient(135deg, #6b0323 0%, #4B0118 100%);
-            box-shadow: 0 20px 35px rgba(0,0,0,0.25);
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        .explore-btn:hover i {
-            transform: translateX(5px);
-            color: var(--accent);
-        }
         @media (max-width: 768px) {
-            .explore-button-section {
-                padding: 60px 5% 30px;
-            }
-            .explore-btn {
-                font-size: 1.1rem;
-                padding: 14px 32px;
-                gap: 10px;
-            }
+            .explore-btn { font-size: 1.1rem; padding: 14px 32px; }
         }
 
-        .section-padding {
-            padding: 70px 5%;
-        }
+        /* ----- SECTION TITLES ----- */
+        .section-padding { padding: 70px 5%; }
         .section-title {
             text-align: center;
             margin-bottom: 50px;
@@ -606,7 +413,7 @@
             margin: 0 auto;
         }
 
-        /* ===== REFINED PRODUCT GRID UI ===== */
+        /* ----- PRODUCT GRID (static) ----- */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -619,33 +426,12 @@
             border-radius: var(--product-card-radius);
             padding: 28px 20px 24px;
             text-align: center;
-            transition: var(--transition);
             border: 1px solid #f0ebe5;
             box-shadow: var(--product-card-shadow);
             display: flex;
             flex-direction: column;
             height: 100%;
             position: relative;
-            backdrop-filter: blur(2px);
-        }
-        .product-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: var(--product-card-radius);
-            padding: 1.5px;
-            background: linear-gradient(135deg, rgba(212,175,55,0.2), transparent 50%, rgba(212,175,55,0.1));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 50px -16px rgba(75, 1, 24, 0.15);
-            border-color: rgba(212, 175, 55, 0.4);
-            background: #fefcf9;
         }
         .product-img {
             width: 100%;
@@ -654,17 +440,12 @@
             aspect-ratio: 1 / 1;
             object-fit: contain;
             background: #faf7f2;
-            transition: transform 0.3s ease;
             padding: 8px;
-        }
-        .product-card:hover .product-img {
-            transform: scale(1.02);
         }
         .product-card h3 {
             font-size: 1.3rem;
             font-weight: 600;
             margin-top: 4px;
-            letter-spacing: -0.2px;
             color: var(--primary);
             font-family: 'Playfair Display', serif;
         }
@@ -706,26 +487,11 @@
             font-weight: 600;
             font-size: 0.8rem;
             letter-spacing: 0.5px;
-            transition: var(--transition);
             cursor: pointer;
             border: none;
-            box-shadow: 0 4px 10px rgba(75, 1, 24, 0.15);
             display: inline-flex;
             align-items: center;
             gap: 8px;
-        }
-        .btn-add i {
-            font-size: 0.8rem;
-            transition: transform 0.2s;
-        }
-        .btn-add:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 18px rgba(212, 175, 55, 0.35);
-        }
-        .btn-add:hover i {
-            transform: translateX(4px);
         }
         .product-card .badge {
             position: absolute;
@@ -738,84 +504,19 @@
             padding: 4px 14px;
             border-radius: 60px;
             letter-spacing: 0.3px;
-            box-shadow: 0 4px 10px rgba(212,175,55,0.2);
         }
         .product-card .badge.sold-out {
             background: #d0c8be;
             color: #4a3f36;
         }
         @media (max-width: 768px) {
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 18px;
-            }
-            .product-card {
-                padding: 18px 12px 18px;
-            }
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            .product-card h3 {
-                font-size: 1.1rem;
-            }
-            .product-card .price {
-                font-size: 1.1rem;
-                margin: 4px 0 14px;
-            }
-            .btn-add, .btn-coming {
-                padding: 8px 18px;
-                font-size: 0.7rem;
-            }
-            .product-card .badge {
-                top: 10px;
-                right: 10px;
-                font-size: 0.6rem;
-                padding: 3px 10px;
-            }
-        }
-        @media (max-width: 480px) {
-            .product-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 14px;
-            }
-            .product-card {
-                padding: 14px 10px 16px;
-            }
-            .product-card h3 {
-                font-size: 1rem;
-            }
-            .product-card .price {
-                font-size: 1rem;
-            }
-        }
-        
-        .marquee-container{
-            width:100%;
-            overflow:hidden;
-            background:linear-gradient(95deg,var(--primary) 0%, #2f0310 100%);
-            padding:14px 0;
-            position:relative;
-        }
-        .marquee-track{
-            display:flex;
-            width:max-content;
-            animation:scrollText 29s linear infinite;
-        }
-        .marquee-content{
-            white-space:nowrap;
-            font-weight:500;
-            letter-spacing:3px;
-            text-transform:uppercase;
-            font-size:0.65rem;
-            color:var(--accent);
-            padding-right:80px;
-            flex-shrink:0;
-        }
-        @keyframes scrollText{
-            from{ transform:translateX(0); }
-            to{ transform:translateX(-50%); }
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+            .product-card { padding: 18px 12px 18px; }
+            .product-card h3 { font-size: 1.1rem; }
+            .product-card .price { font-size: 1.1rem; }
         }
 
+        /* ----- TRUST HERO (static) ----- */
         .trust-hero {
             position: relative;
             background: url('trusted_1.webp') center/cover fixed;
@@ -848,10 +549,9 @@
             font-family: 'Playfair Display';
             color: var(--accent);
         }
-        
-        .discreet-section {
-            background: var(--bg-secondary);
-        }
+
+        /* ----- DISCREET SECTION (static) ----- */
+        .discreet-section { background: var(--bg-secondary); }
         .discreet-wrapper {
             display: flex;
             align-items: center;
@@ -873,10 +573,7 @@
             object-fit: cover;
             max-height: 350px;
         }
-        .discreet-text {
-            flex: 1;
-            text-align: left;
-        }
+        .discreet-text { flex: 1; text-align: left; }
         .icon-row {
             display: flex;
             gap: 30px;
@@ -887,86 +584,96 @@
             font-size: 2rem;
             color: var(--accent);
         }
-        .icon-feature p {
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
+        .icon-feature p { font-size: 0.85rem; font-weight: 500; }
         @media (max-width: 768px) {
             .discreet-wrapper { flex-direction: column; text-align: center; }
             .discreet-text { text-align: center; }
             .icon-row { justify-content: center; }
         }
-        
-        .nature-video-small {
-            width: 100%;
-            border-radius: 28px;
-            margin-top: 20px;
-            max-height: 300px;
-            object-fit: cover;
+
+        /* ----- NATURE SECTION (static) ----- */
+        .nature-section {
+            background: linear-gradient(135deg, var(--nature-green) 0%, var(--nature-green-light) 50%, var(--nature-green) 100%);
+            padding: 80px 5%;
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .mission-box {
-            background: linear-gradient(135deg, #fff9f0 0%, #fdf3e6 100%);
-            border-radius: 32px;
-            padding: 48px 32px;
-            margin-top: 60px;
-            text-align: center;
-            border: 1px solid rgba(212,175,55,0.3);
-        }
-        .age-restriction {
-            background: var(--primary);
-            color: var(--accent);
-            padding: 8px 24px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 20px;
-            display: inline-block;
-        }
-        
-        .certs-wrapper{
-            background:#fffbf5;
-            padding:70px 5%;
-        }
-        .cert-single-card{
-            background:white;
-            border-radius:48px;
-            max-width:1200px;
-            margin:0 auto;
-            padding:50px 40px;
-            text-align:center;
-            box-shadow:0 20px 40px rgba(0,0,0,0.06);
-        }
-        .cert-badges-group{
-            display:grid;
-            grid-template-columns:repeat(2,1fr);
-            gap:30px;
-            margin:40px 0 20px;
-        }
-        .cert-badge-item{
-            text-align:center;
-            padding:25px 15px;
-            background:#fefaf5;
-            border-radius:28px;
-        }
-        .cert-badge-item i{
-            font-size:2.5rem;
-            color:var(--accent);
-        }
-        @media (max-width:600px){
-            .cert-badges-group{ grid-template-columns:1fr; }
-        }
-        
-        .benefits-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 55px;
-            align-items: center;
+        .nature-content {
             max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
-        @media (max-width: 850px) { .benefits-content { grid-template-columns: 1fr; } }
-        
+        .nature-image {
+            flex: 1;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 2px solid rgba(212,175,55,0.3);
+        }
+        .nature-image img {
+            width: 100%;
+            border-radius: 28px;
+            display: block;
+            object-fit: cover;
+            max-height: 350px;
+        }
+        .nature-text { flex: 1; text-align: left; }
+        .nature-text h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+        }
+        .nature-text p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 15px;
+        }
+        .nature-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px 30px;
+            margin-top: 30px;
+        }
+        .nature-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.08);
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(212,175,55,0.15);
+        }
+        .nature-feature-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            min-width: 40px;
+        }
+        .nature-feature-item h4 {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: white;
+        }
+        .nature-feature-item p {
+            font-size: 0.75rem;
+            margin: 0;
+            color: rgba(255,255,255,0.7);
+        }
+        @media (max-width: 768px) {
+            .nature-content { flex-direction: column; text-align: center; }
+            .nature-text { text-align: center; }
+            .nature-features { grid-template-columns: 1fr 1fr; gap: 12px; justify-items: center; }
+            .nature-feature-item { flex-direction: column; text-align: center; gap: 5px; padding: 14px 10px; width: 100%; }
+            .nature-feature-item i { min-width: auto; }
+        }
+
+        /* ----- CONTACT FOUNDER (static) ----- */
         .contact-founder {
             background: white;
             text-align: center;
@@ -999,151 +706,37 @@
             align-items: center;
             gap: 10px;
         }
-        .contact-btn:hover {
-            background: var(--accent);
-            border-color: var(--accent);
-        }
-        
-        /* ===== NATURE SECTION - PLANT GREEN BACKGROUND ===== */
-        .nature-section {
-            background: linear-gradient(135deg, var(--nature-green) 0%, var(--nature-green-light) 50%, var(--nature-green) 100%);
-            padding: 80px 5%;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        .nature-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 50 Q40 30 60 50 Q80 70 100 50" stroke="rgba(212,175,55,0.05)" fill="none" stroke-width="2"/><path d="M10 60 Q30 40 50 60 Q70 80 90 60" stroke="rgba(212,175,55,0.03)" fill="none" stroke-width="2"/></svg>') repeat;
-            opacity: 0.2;
-        }
-        .nature-content {
+
+        /* ----- CERTIFICATIONS (static) ----- */
+        .certs-wrapper { background: #fffbf5; padding: 70px 5%; }
+        .cert-single-card {
+            background: white;
+            border-radius: 48px;
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
         }
-        .nature-image {
-            flex: 1;
+        .cert-badges-group {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 30px;
+            margin: 40px 0 20px;
+        }
+        .cert-badge-item {
+            text-align: center;
+            padding: 25px 15px;
+            background: #fefaf5;
             border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            border: 2px solid rgba(212,175,55,0.3);
         }
-        .nature-image img {
-            width: 100%;
-            border-radius: 28px;
-            display: block;
-            object-fit: cover;
-            max-height: 350px;
-        }
-        .nature-text {
-            flex: 1;
-            text-align: left;
-        }
-        .nature-text h2 {
+        .cert-badge-item i {
             font-size: 2.5rem;
             color: var(--accent);
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 15px;
         }
-        .nature-text p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 15px;
-        }
-        .nature-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px 30px;
-            margin-top: 30px;
-        }
-        .nature-feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255,255,255,0.08);
-            padding: 12px 16px;
-            border-radius: 12px;
-            border: 1px solid rgba(212,175,55,0.15);
-            backdrop-filter: blur(5px);
-            transition: var(--transition);
-        }
-        .nature-feature-item:hover {
-            background: rgba(212,175,55,0.15);
-            transform: translateY(-3px);
-            border-color: var(--accent);
-        }
-        .nature-feature-item i {
-            font-size: 2rem;
-            color: var(--accent);
-            min-width: 40px;
-        }
-        .nature-feature-item h4 {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: white;
-        }
-        .nature-feature-item p {
-            font-size: 0.75rem;
-            margin: 0;
-            color: rgba(255,255,255,0.7);
-        }
-        @media (max-width: 768px) {
-            .nature-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .nature-text { text-align: center; }
-            .nature-features {
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-                justify-items: center;
-            }
-            .nature-feature-item {
-                flex-direction: column;
-                text-align: center;
-                gap: 5px;
-                padding: 14px 10px;
-                width: 100%;
-            }
-            .nature-feature-item i {
-                min-width: auto;
-            }
-        }
-        @media (max-width: 480px) {
-            .nature-features {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            .nature-feature-item {
-                padding: 10px 8px;
-            }
-            .nature-feature-item i {
-                font-size: 1.5rem;
-            }
-            .nature-feature-item h4 {
-                font-size: 0.7rem;
-            }
-            .nature-feature-item p {
-                font-size: 0.6rem;
-            }
-            .nature-text h2 {
-                font-size: 1.8rem;
-            }
-        }
+        @media (max-width:600px){ .cert-badges-group { grid-template-columns: 1fr; } }
 
-        /* ===== ENHANCED FOOTER ===== */
+        /* ----- FOOTER (static) ----- */
         footer {
             background: var(--primary);
             color: white;
@@ -1184,13 +777,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
             text-decoration: none;
-        }
-        .footer-social a:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: translateY(-3px);
         }
         .footer-col h4 {
             font-size: 1rem;
@@ -1200,21 +787,12 @@
             text-transform: uppercase;
             letter-spacing: 1px;
         }
-        .footer-col ul {
-            list-style: none;
-        }
-        .footer-col ul li {
-            margin-bottom: 12px;
-        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
         .footer-col ul li a {
             color: rgba(255,255,255,0.7);
             text-decoration: none;
             font-size: 0.9rem;
-            transition: var(--transition);
-        }
-        .footer-col ul li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
         }
         .footer-col ul li i {
             margin-right: 10px;
@@ -1240,57 +818,31 @@
             margin: 15px auto;
             opacity: 0.5;
         }
-        @media (max-width: 850px) {
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
-            }
-        }
-        @media (max-width: 480px) {
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .footer-brand-col p {
-                max-width: 100%;
-            }
-            .footer-social {
-                justify-content: center;
-            }
-        }
+        @media (max-width: 850px) { .footer-content { grid-template-columns: 1fr 1fr; gap: 30px; } }
+        @media (max-width: 480px) { .footer-content { grid-template-columns: 1fr; text-align: center; } }
     </style>
 </head>
 <body>
 
+<!-- NAVIGATION -->
 <nav id="navbar">
     <div class="nav-left-group">
-        <div class="nav-icon-btn" id="searchIcon">
-            <i class="fas fa-search"></i>
-        </div>
-        <div class="nav-icon-btn" id="profileIcon">
-            <i class="fas fa-user-circle"></i>
-        </div>
+        <div class="nav-icon-btn" id="searchIcon"><i class="fas fa-search"></i></div>
+        <div class="nav-icon-btn" id="profileIcon"><i class="fas fa-user-circle"></i></div>
     </div>
     <div class="logo-wrapper">
-        <a href="#" class="logo-link">
-            <img src="mainlogo.png" alt="AdultBite Logo" class="logo-img">
-        </a>
+        <a href="#" class="logo-link"><img src="mainlogo.png" alt="AdultBite Logo" class="logo-img" /></a>
     </div>
     <div class="nav-right-group">
-        <div class="nav-icon-btn" id="dotsMenuTrigger">
-            <i class="fas fa-ellipsis-v"></i>
-        </div>
+        <div class="nav-icon-btn" id="dotsMenuTrigger"><i class="fas fa-ellipsis-v"></i></div>
     </div>
 </nav>
 
+<!-- MARQUEE TOP -->
 <div class="marquee-container">
     <div class="marquee-track">
-        <div class="marquee-content">
-            ✨ Elevate Every Intimate Moment ✨ Crafted With Natural Ingredients ✨ Premium Couple Wellness ✨ Feel Confident. Feel Desired. ✨ Luxury You Can Trust ✨
-        </div>
-        <div class="marquee-content">
-            ✨ Elevate Every Intimate Moment ✨ Crafted With Natural Ingredients ✨ Premium Couple Wellness ✨ Feel Confident. Feel Desired. ✨ Luxury You Can Trust ✨
-        </div>
+        <div class="marquee-content">✨ Elevate Every Intimate Moment ✨ Crafted With Natural Ingredients ✨ Premium Couple Wellness ✨ Feel Confident. Feel Desired. ✨ Luxury You Can Trust ✨</div>
+        <div class="marquee-content">✨ Elevate Every Intimate Moment ✨ Crafted With Natural Ingredients ✨ Premium Couple Wellness ✨ Feel Confident. Feel Desired. ✨ Luxury You Can Trust ✨</div>
     </div>
 </div>
 
@@ -1298,19 +850,18 @@
 <div class="search-overlay" id="searchOverlay">
     <div class="close-search" id="closeSearchBtn"><i class="fas fa-times"></i></div>
     <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search for products... Chocolate, Spray, Cards..." autocomplete="off">
+        <input type="text" id="searchInput" placeholder="Search for products..." autocomplete="off" />
         <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
     </div>
     <div class="search-results" id="searchResults"></div>
 </div>
 
-<!-- Side Drawer & Profile Drawer -->
+<!-- SIDE DRAWERS -->
 <div class="side-drawer" id="sideDrawer">
     <div class="close-drawer" id="closeDrawerBtn"><i class="fas fa-times"></i></div>
     <a href="#top"><i class="fas fa-home"></i> Home</a>
     <a href="#products"><i class="fas fa-box-open"></i> Collection</a>
     <a href="#nature"><i class="fas fa-leaf"></i> Nature</a>
-    <a href="#storysection"><i class="fas fa-book-open"></i> Our Story</a>
     <a href="#certs"><i class="fas fa-certificate"></i> Quality</a>
     <a href="#contact-founder"><i class="fas fa-headset"></i> Connect</a>
 </div>
@@ -1322,38 +873,32 @@
         <h3>Wellness Member</h3>
         <p>Sign in for exclusive offers</p>
     </div>
-    <a href="#storysection" class="profile-link"><i class="fas fa-headset"></i> Support</a>
+    <a href="#contact-founder" class="profile-link"><i class="fas fa-headset"></i> Support</a>
 </div>
 
-<!-- Explore Button Section -->
+<!-- EXPLORE BUTTON -->
 <div class="explore-button-section">
     <div class="section-title" style="margin-bottom: 24px;">
         <h2>Discover The Collection</h2>
         <p>Luxury wellness essentials crafted for confidence & performance.</p>
     </div>
-    <a href="#products" id="exploreProductsBtn" class="explore-btn">
-        Explore Our Products <i class="fas fa-arrow-right"></i>
-    </a>
+    <a href="#products" id="exploreProductsBtn" class="explore-btn">Explore Our Products <i class="fas fa-arrow-right"></i></a>
 </div>
 
 <!-- COVER PHOTO -->
 <div class="cover-banner">
-    <img class="cover-image" src="IMG_8874.jpeg" alt="Luxury Wellness Cover">
+    <img class="cover-image" src="IMG_8874.jpeg" alt="Luxury Wellness Cover" />
 </div>
 
-<!-- LIVE SALE BANNER -->
+<!-- MARQUEE BOTTOM -->
 <div class="marquee-container">
     <div class="marquee-track">
-        <div class="marquee-content">
-            ✨ Elevate Every Intimate Moment ✨ Crafted With Natural Ingredients ✨ Premium Couple Wellness ✨ Feel Confident. Feel Desired. ✨ Luxury You Can Trust ✨
-        </div>
-        <div class="marquee-content">
-            ✨ Elevate Every Intimate Moment ✨ Crafted With Natural Ingredients ✨ Premium Couple Wellness ✨ Feel Confident. Feel Desired. ✨ Luxury You Can Trust ✨
-        </div>
+        <div class="marquee-content">✨ Elevate Every Intimate Moment ✨ Crafted With Natural Ingredients ✨ Premium Couple Wellness ✨ Feel Confident. Feel Desired. ✨ Luxury You Can Trust ✨</div>
+        <div class="marquee-content">✨ Elevate Every Intimate Moment ✨ Crafted With Natural Ingredients ✨ Premium Couple Wellness ✨ Feel Confident. Feel Desired. ✨ Luxury You Can Trust ✨</div>
     </div>
 </div>
 
-<!-- PRODUCTS section - REFINED UI -->
+<!-- PRODUCTS SECTION -->
 <section id="products" class="section-padding">
     <div class="section-title">
         <h2>The Signature Collection</h2>
@@ -1362,39 +907,27 @@
     <div class="product-grid" id="productGrid"></div>
 </section>
 
-<!-- NATURE SECTION - PLANT GREEN BACKGROUND -->
+<!-- NATURE SECTION -->
 <section id="nature" class="nature-section">
     <div class="nature-content">
         <div class="nature-image">
-            <img src="nature-placeholder.jpg" alt="Nature-inspired wellness" onerror="this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=400&fit=crop'">
+            <img src="nature-placeholder.jpg" alt="Nature-inspired wellness" onerror="this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=400&fit=crop'" />
         </div>
         <div class="nature-text">
             <h2>Rooted in Nature</h2>
             <p>We believe that the most powerful wellness solutions come from the earth. Our products are crafted with carefully selected natural ingredients, sourced from sustainable farms that respect the environment.</p>
             <p>From the rich cacao of our chocolates to the pure botanical extracts in our sprays, every ingredient is chosen for its potency and purity.</p>
             <div class="nature-features">
-                <div class="nature-feature-item">
-                    <i class="fas fa-seedling"></i>
-                    <div><h4>Sustainably Sourced</h4><p>Ethical & eco-friendly farming</p></div>
-                </div>
-                <div class="nature-feature-item">
-                    <i class="fas fa-flask"></i>
-                    <div><h4>Lab Tested</h4><p>Pure & potent formulations</p></div>
-                </div>
-                <div class="nature-feature-item">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <div><h4>Plant-Based</h4><p>Natural, vegan-friendly ingredients</p></div>
-                </div>
-                <div class="nature-feature-item">
-                    <i class="fas fa-recycle"></i>
-                    <div><h4>Eco-Conscious</h4><p>Minimal, sustainable packaging</p></div>
-                </div>
+                <div class="nature-feature-item"><i class="fas fa-seedling"></i><div><h4>Sustainably Sourced</h4><p>Ethical & eco-friendly farming</p></div></div>
+                <div class="nature-feature-item"><i class="fas fa-flask"></i><div><h4>Lab Tested</h4><p>Pure & potent formulations</p></div></div>
+                <div class="nature-feature-item"><i class="fas fa-hand-holding-heart"></i><div><h4>Plant-Based</h4><p>Natural, vegan-friendly ingredients</p></div></div>
+                <div class="nature-feature-item"><i class="fas fa-recycle"></i><div><h4>Eco-Conscious</h4><p>Minimal, sustainable packaging</p></div></div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- TRUST Section -->
+<!-- TRUST SECTION -->
 <section class="trust-hero">
     <div class="trust-overlay"></div>
     <div class="trust-content">
@@ -1408,11 +941,11 @@
     </div>
 </section>
 
-<!-- Discreet Packaging -->
+<!-- DISCREET SECTION -->
 <section class="section-padding discreet-section">
     <div class="discreet-wrapper">
         <div class="discreet-image">
-            <img src="finalpacking.png" alt="Discreet Packaging" onerror="this.src='https://placehold.co/600x400/4b0118/white?text=Discreet+Packaging'">
+            <img src="finalpacking.png" alt="Discreet Packaging" onerror="this.src='https://placehold.co/600x400/4b0118/white?text=Discreet+Packaging'" />
         </div>
         <div class="discreet-text">
             <h3>100% Discreet Packaging</h3>
@@ -1427,24 +960,37 @@
     </div>
 </section>
 
-<!-- Contact Founder -->
+<!-- CONTACT FOUNDER -->
 <section id="contact-founder" class="contact-founder">
-    <div><img src="team.jpeg" alt="founder" class="circular-img"><h2 style="font-size:2rem; color:var(--primary);">Talk With Our Wellness Team</h2><p>Need guidance or product support? We're here to help you privately.</p>
-    <div class="contact-buttons"><a href="https://wa.me/+919996631422?text=Hi%20AdultBite,%20I%20visited%20your%20website" class="contact-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a><a href="mailto:support@adultbite.com" class="contact-btn"><i class="far fa-envelope"></i> Email</a><a href="https://instagram.com/adult.bite" class="contact-btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></div>
+    <div>
+        <img src="team.jpeg" alt="founder" class="circular-img" />
+        <h2 style="font-size:2rem; color:var(--primary);">Talk With Our Wellness Team</h2>
+        <p>Need guidance or product support? We're here to help you privately.</p>
+        <div class="contact-buttons">
+            <a href="https://wa.me/+919996631422?text=Hi%20AdultBite,%20I%20visited%20your%20website" class="contact-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="mailto:support@adultbite.com" class="contact-btn"><i class="far fa-envelope"></i> Email</a>
+            <a href="https://instagram.com/adult.bite" class="contact-btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
     </div>
 </section>
 
 <!-- CERTIFICATIONS -->
 <section id="certs" class="certs-wrapper">
     <div class="section-title"><h2>Trusted Quality</h2><p>Our standards are as premium as our products</p></div>
-    <div class="cert-single-card"><div class="cert-badges-group"><div class="cert-badge-item"><i class="fas fa-certificate"></i><h4>FSSAI Certified</h4><p>Food safety & quality</p></div><div class="cert-badge-item"><i class="fas fa-award"></i><h4>ISO Certified</h4><p>Excellence in mfg</p></div></div><span style="display:inline-block; margin-top:20px; font-weight:500; color:var(--accent);">✔ Premium Wellness Certified</span></div>
+    <div class="cert-single-card">
+        <div class="cert-badges-group">
+            <div class="cert-badge-item"><i class="fas fa-certificate"></i><h4>FSSAI Certified</h4><p>Food safety & quality</p></div>
+            <div class="cert-badge-item"><i class="fas fa-award"></i><h4>ISO Certified</h4><p>Excellence in mfg</p></div>
+        </div>
+        <span style="display:inline-block; margin-top:20px; font-weight:500; color:var(--accent);">✔ Premium Wellness Certified</span>
+    </div>
 </section>
 
-<!-- ===== ENHANCED FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
     <div class="footer-content">
         <div class="footer-brand-col">
-            <img src="mainlogo.png" alt="AdultBite" class="footer-logo" style="filter: brightness(0) invert(1);">
+            <img src="mainlogo.png" alt="AdultBite" class="footer-logo" style="filter: brightness(0) invert(1);" />
             <p>Premium wellness luxury crafted for confidence, intimacy & performance. Trusted by 1+ million Indians.</p>
             <div class="footer-social">
                 <a href="https://instagram.com/adult.bite" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -1453,7 +999,6 @@
                 <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-        
         <div class="footer-col">
             <h4>Support</h4>
             <ul>
@@ -1463,7 +1008,6 @@
                 <li><a href="#"><i class="fas fa-chevron-right"></i> Returns</a></li>
             </ul>
         </div>
-       
     </div>
     <div class="footer-bottom">
         <div class="footer-divider"></div>
@@ -1473,162 +1017,106 @@
 </footer>
 
 <script>
-// PRODUCTS DATA - All products now have the same simple structure like Playing Cards and Delay Spray
-const productsData = [
-    { 
-        name: "Chocolate", 
-        price: "₹299",
-        img: "choclatesingle.PNG", 
-        customLink: "singlechocolate.html",
-        category: "chocolate", 
-        comingSoon: false,
-        hasVariations: false
-    },
-    { 
-        name: "Oral Spray", 
-        price: "₹549",
-        img: "spray.png", 
-        customLink: "oralspray.html",
-        category: "spray", 
-        comingSoon: false,
-        hasVariations: false
-    },
-    { 
-        name: "Playing Cards", 
-        price: "₹229", 
-        img: "main_cards.jpeg", 
-        customLink: "cards.html", 
-        category: "cards", 
-        comingSoon: false, 
-        hasVariations: false 
-    },
-    { 
-        name: "Delay Spray", 
-        price: "₹300", 
-        img: "mian_delay.png", 
-        customLink: "#", 
-        category: "delay", 
-        comingSoon: true, 
-        hasVariations: false 
-    },
-    { 
-        name: "Premium Condoms", 
-        price: "₹100", 
-        img: "main_condoms.png", 
-        customLink: "#", 
-        category: "condoms", 
-        comingSoon: true, 
-        hasVariations: false 
-    },
-    { 
-        name: "Lubricant", 
-        price: "₹300", 
-        img: "mian_lube.jpeg", 
-        customLink: "#", 
-        category: "lube", 
-        comingSoon: true, 
-        hasVariations: false 
-    }
-];
+    // ----- PRODUCT DATA (all static) -----
+    const productsData = [
+        { name: "Chocolate", price: "299", img: "choclatesingle.PNG", customLink: "singlechocolate.html", comingSoon: false },
+        { name: "Oral Spray", price: "549", img: "spray.png", customLink: "oralspray.html", comingSoon: false },
+        { name: "Playing Cards", price: "229", img: "main_cards.jpeg", customLink: "cards.html", comingSoon: false },
+        { name: "Delay Spray", price: "300", img: "mian_delay.png", customLink: "#", comingSoon: true },
+        { name: "Premium Condoms", price: "100", img: "main_condoms.png", customLink: "#", comingSoon: true },
+        { name: "Water based Lubricant", price: "300", img: "mian_lube.jpeg", customLink: "#", comingSoon: true }
+    ];
 
-function renderProducts() {
-    const grid = document.getElementById('productGrid');
-    if(!grid) return;
-    
-    grid.innerHTML = productsData.map((p, idx) => {
-        if(p.comingSoon) {
-            return `
-                <div class="product-card">
-                    <div class="badge sold-out">Coming Soon</div>
-                    <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
-                    <h3>${p.name}</h3>
-                    <div class="price">${p.price}</div>
-                    <div class="product-btn-wrapper"><button class="btn-coming" disabled>Notify Me</button></div>
-                </div>
-            `;
-        } else {
-            return `
-                <div class="product-card">
-                    <div class="badge">Best Seller</div>
-                    <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
-                    <h3>${p.name}</h3>
-                    <div class="price">${p.price}</div>
-                    <div class="product-btn-wrapper"><a href="${p.customLink}" class="btn-add"><i class="fas fa-shopping-bag"></i> Add To Cart</a></div>
-                </div>
-            `;
-        }
-    }).join('');
-}
-
-renderProducts();
-
-// Explore Button - smooth scroll to products
-document.getElementById('exploreProductsBtn').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-});
-
-// Navbar scroll effect
-const nav = document.getElementById('navbar');
-window.addEventListener('scroll', () => { if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); });
-
-// Side Drawer
-const dotsTrigger = document.getElementById('dotsMenuTrigger');
-const sideDrawer = document.getElementById('sideDrawer');
-const closeDrawerBtn = document.getElementById('closeDrawerBtn');
-const profileIcon = document.getElementById('profileIcon');
-const profileDrawer = document.getElementById('profileDrawer');
-const closeProfileBtn = document.getElementById('closeProfileBtn');
-const searchIcon = document.getElementById('searchIcon');
-const searchOverlay = document.getElementById('searchOverlay');
-const closeSearchBtn = document.getElementById('closeSearchBtn');
-const searchInput = document.getElementById('searchInput');
-const searchBtn = document.getElementById('searchBtn');
-const searchResultsDiv = document.getElementById('searchResults');
-
-// Search logic
-function performSearch() {
-    const query = searchInput.value.toLowerCase().trim();
-    if(!query) { searchResultsDiv.classList.remove('active'); return; }
-    const filtered = productsData.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
-    if(filtered.length === 0) {
-        searchResultsDiv.innerHTML = '<div class="no-results"><i class="fas fa-search"></i> No products found. Try "Chocolate" or "Spray"</div>';
-    } else {
-        searchResultsDiv.innerHTML = filtered.map(p => {
-            let link = p.customLink || "#";
-            let imgSrc = p.img;
-            return `
-                <div class="search-result-item" onclick="window.location.href='${link !== '#' ? link : '#'}'; document.getElementById('searchOverlay').classList.remove('active'); this.closest('.search-results').classList.remove('active');">
-                    <img src="${imgSrc}" onerror="this.src='https://placehold.co/50x50/f5f0ea/4b0118'">
-                    <div><strong>${p.name}</strong><span>${p.price}</span></div>
-                </div>
-            `;
+    function renderProducts() {
+        const grid = document.getElementById('productGrid');
+        if (!grid) return;
+        grid.innerHTML = productsData.map(p => {
+            if (p.comingSoon) {
+                return `
+                    <div class="product-card">
+                        <div class="badge sold-out">Coming Soon</div>
+                        <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
+                        <h3>${p.name}</h3>
+                        <div class="price">${p.price}</div>
+                        <div class="product-btn-wrapper"><button class="btn-coming" disabled>Notify Me</button></div>
+                    </div>
+                `;
+            } else {
+                return `
+                    <div class="product-card">
+                        <div class="badge">Best Seller</div>
+                        <img src="${p.img}" class="product-img" onerror="this.src='https://placehold.co/300x300/f5f0ea/4b0118?text=${p.name}'">
+                        <h3>${p.name}</h3>
+                        <div class="price">${p.price}</div>
+                        <div class="product-btn-wrapper"><a href="${p.customLink}" class="btn-add"><i class="fas fa-shopping-bag"></i> Add To Cart</a></div>
+                    </div>
+                `;
+            }
         }).join('');
     }
-    searchResultsDiv.classList.add('active');
-}
+    renderProducts();
 
-if(searchIcon) searchIcon.addEventListener('click', () => { searchOverlay.classList.add('active'); searchInput.focus(); searchResultsDiv.classList.remove('active'); });
-if(closeSearchBtn) closeSearchBtn.addEventListener('click', () => { searchOverlay.classList.remove('active'); searchResultsDiv.classList.remove('active'); });
-if(searchBtn) searchBtn.addEventListener('click', performSearch);
-if(searchInput) searchInput.addEventListener('keyup', (e) => { if(e.key === 'Enter') performSearch(); else if(searchInput.value === '') searchResultsDiv.classList.remove('active'); else performSearch(); });
+    // ----- EXPLORE BUTTON (scroll to products) -----
+    document.getElementById('exploreProductsBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+    });
 
-if(dotsTrigger) dotsTrigger.addEventListener('click', (e) => { e.stopPropagation(); sideDrawer.classList.add('active'); });
-if(closeDrawerBtn) closeDrawerBtn.addEventListener('click', () => sideDrawer.classList.remove('active'));
-if(profileIcon) profileIcon.addEventListener('click', (e) => { e.stopPropagation(); profileDrawer.classList.add('active'); });
-if(closeProfileBtn) closeProfileBtn.addEventListener('click', () => profileDrawer.classList.remove('active'));
+    // ----- DRAWER TOGGLES (no animation) -----
+    const dotsTrigger = document.getElementById('dotsMenuTrigger');
+    const sideDrawer = document.getElementById('sideDrawer');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const profileIcon = document.getElementById('profileIcon');
+    const profileDrawer = document.getElementById('profileDrawer');
+    const closeProfileBtn = document.getElementById('closeProfileBtn');
 
-document.querySelectorAll('.side-drawer a, .profile-drawer a').forEach(link => {
-    link.addEventListener('click', () => { sideDrawer.classList.remove('active'); profileDrawer.classList.remove('active'); });
-});
-document.addEventListener('click', (e) => {
-    if(sideDrawer?.classList.contains('active') && !sideDrawer.contains(e.target) && !dotsTrigger?.contains(e.target)) sideDrawer.classList.remove('active');
-    if(profileDrawer?.classList.contains('active') && !profileDrawer.contains(e.target) && !profileIcon?.contains(e.target)) profileDrawer.classList.remove('active');
-    if(searchOverlay?.classList.contains('active') && !searchOverlay.contains(e.target) && e.target !== searchIcon && !searchIcon?.contains(e.target)) {
-        searchOverlay.classList.remove('active');
-        searchResultsDiv.classList.remove('active');
+    if (dotsTrigger) dotsTrigger.addEventListener('click', () => { sideDrawer.classList.toggle('active'); });
+    if (closeDrawerBtn) closeDrawerBtn.addEventListener('click', () => { sideDrawer.classList.remove('active'); });
+    if (profileIcon) profileIcon.addEventListener('click', () => { profileDrawer.classList.toggle('active'); });
+    if (closeProfileBtn) closeProfileBtn.addEventListener('click', () => { profileDrawer.classList.remove('active'); });
+
+    // ----- SEARCH (static, no animation) -----
+    const searchIcon = document.getElementById('searchIcon');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const closeSearchBtn = document.getElementById('closeSearchBtn');
+    const searchInput = document.getElementById('searchInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const searchResultsDiv = document.getElementById('searchResults');
+
+    function performSearch() {
+        const query = searchInput.value.toLowerCase().trim();
+        if (!query) { searchResultsDiv.classList.remove('active'); return; }
+        const filtered = productsData.filter(p => p.name.toLowerCase().includes(query) || p.category?.toLowerCase().includes(query));
+        if (filtered.length === 0) {
+            searchResultsDiv.innerHTML = '<div class="no-results"><i class="fas fa-search"></i> No products found.</div>';
+        } else {
+            searchResultsDiv.innerHTML = filtered.map(p => {
+                const link = p.customLink || '#';
+                return `
+                    <div class="search-result-item" onclick="window.location.href='${link}'; document.getElementById('searchOverlay').classList.remove('active'); this.closest('.search-results').classList.remove('active');">
+                        <img src="${p.img}" onerror="this.src='https://placehold.co/50x50/f5f0ea/4b0118'">
+                        <div><strong>${p.name}</strong><span>${p.price}</span></div>
+                    </div>
+                `;
+            }).join('');
+        }
+        searchResultsDiv.classList.add('active');
     }
-});
+
+    if (searchIcon) searchIcon.addEventListener('click', () => { searchOverlay.classList.add('active'); searchInput.focus(); searchResultsDiv.classList.remove('active'); });
+    if (closeSearchBtn) closeSearchBtn.addEventListener('click', () => { searchOverlay.classList.remove('active'); searchResultsDiv.classList.remove('active'); });
+    if (searchBtn) searchBtn.addEventListener('click', performSearch);
+    if (searchInput) searchInput.addEventListener('keyup', (e) => { if (e.key === 'Enter') performSearch(); else if (searchInput.value === '') searchResultsDiv.classList.remove('active'); else performSearch(); });
+
+    // click outside drawers
+    document.addEventListener('click', (e) => {
+        if (sideDrawer?.classList.contains('active') && !sideDrawer.contains(e.target) && !dotsTrigger?.contains(e.target)) sideDrawer.classList.remove('active');
+        if (profileDrawer?.classList.contains('active') && !profileDrawer.contains(e.target) && !profileIcon?.contains(e.target)) profileDrawer.classList.remove('active');
+        if (searchOverlay?.classList.contains('active') && !searchOverlay.contains(e.target) && e.target !== searchIcon && !searchIcon?.contains(e.target)) {
+            searchOverlay.classList.remove('active');
+            searchResultsDiv.classList.remove('active');
+        }
+    });
 </script>
 </body>
 </html>
